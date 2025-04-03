@@ -1,0 +1,16 @@
+.container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.wrapper {
+		&:not(:first-child) {
+			padding-top: 2rem;
+			border-top: 1px solid var(--color-border-secondary);
+		}
+		&:not(:last-child) {
+			padding-bottom: 2rem;
+		}
+	}
+}

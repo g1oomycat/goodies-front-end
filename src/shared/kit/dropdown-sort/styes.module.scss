@@ -1,0 +1,47 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	display: inline-block;
+}
+
+.title {
+	font-size: inherit;
+	cursor: pointer;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	line-height: 1;
+}
+
+.menu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 30;
+	background: var(--color-text);
+	color: var(--color-text-inverted);
+	border-radius: 1rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	font-style: normal;
+	overflow: hidden;
+	padding: 1rem 0;
+	text-align: start;
+	margin-top: 1rem;
+}
+.icon {
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.menu_item {
+	padding: 8px 15px;
+	cursor: pointer;
+	@include transition();
+	font-size: 85%;
+	text-wrap: nowrap;
+	font-weight: 400;
+	&:hover {
+		color: var(--color-pink);
+	}
+}

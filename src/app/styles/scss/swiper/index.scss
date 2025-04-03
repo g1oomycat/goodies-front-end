@@ -1,0 +1,33 @@
+@use '../break_point.scss' as *;
+.swiper-wrapper {
+	align-items: stretch;
+	.swiper-slide {
+		height: auto;
+	}
+}
+._drag_bar {
+	position: relative;
+	cursor: pointer;
+	height: 10px;
+	top: -4.5px;
+	transform: translateY(-50%);
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%; // Центрирование по вертикали
+		left: 0;
+		transform: translateY(
+			-50%
+		); // Смещаем на 50%, чтобы центрировать черную полосу
+		width: 100%;
+		height: 1px;
+		@include transition(padding);
+		background-color: var(--color-red);
+		border-radius: 10px;
+	}
+	&:hover::after,
+	&:active::after {
+		padding: 2px 0;
+	}
+}

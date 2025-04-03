@@ -1,0 +1,31 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.badge {
+	position: absolute;
+	top: -0.5rem;
+	right: -0.5rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	@include transition();
+	z-index: 3;
+	background-color: var(--banner-color);
+
+	.children {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.2rem;
+		font-weight: 500;
+		filter: invert(100%);
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		right: -0.3rem;
+		width: 1.8rem;
+		height: 1.8rem;
+		.children {
+			font-size: 1rem;
+		}
+	}
+}

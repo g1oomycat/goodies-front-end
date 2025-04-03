@@ -1,0 +1,64 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	&.none {
+		justify-content: flex-end;
+	}
+	p {
+		max-width: 34rem;
+	}
+}
+
+.search {
+	position: absolute;
+	top: -32%;
+	left: 50%;
+	transform: translateX(-50%); // Центрируем кнопку
+	max-width: 100%; // Ограничивает ширину, если нужно
+	margin-right: 2rem;
+	overflow: hidden; // Скрывает выходящий за границы текст
+}
+.subtitle {
+	display: flex;
+	justify-content: center;
+}
+.body {
+	position: relative;
+}
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	.title {
+		&.none {
+			justify-content: space-between;
+		}
+		.search {
+			position: relative;
+			top: 0;
+			left: 0;
+			transform: translateX(0%); // Центрируем кнопку
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.header {
+		margin: 0;
+		& [data-count='0'] {
+			border-bottom: 1px solid var(--color-main-glass);
+		}
+	}
+	.title {
+		height: 6rem;
+		padding: 1rem 2rem;
+		.search {
+			h1 {
+				font-size: 3rem;
+			}
+		}
+	}
+	.total {
+		padding-top: 4rem;
+	}
+}

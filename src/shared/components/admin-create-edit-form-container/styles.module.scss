@@ -1,0 +1,72 @@
+.root {
+	position: relative;
+	width: 100%;
+	background-color: var(--color-bg);
+	border-radius: 0.5rem;
+	border: 1px solid var(--color-border-secondary);
+	height: 100%;
+
+	.flex {
+		width: inherit;
+		display: flex;
+		flex-direction: column;
+	}
+	.form {
+		position: relative;
+		width: inherit;
+		display: flex;
+		align-items: stretch;
+		gap: 20rem;
+		padding: 3rem 4rem 7rem 2rem;
+		.main {
+			flex: 1;
+			min-width: 30rem;
+			display: flex;
+			flex-direction: column;
+			gap: 6rem;
+		}
+		.sub {
+			position: relative;
+			width: 38rem;
+			flex-shrink: 0;
+
+			.body {
+				position: sticky;
+				top: 0;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 3.5rem;
+			}
+		}
+	}
+	.footer {
+		position: sticky;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 7rem;
+		background-color: var(--color-bg);
+		border-bottom-left-radius: inherit;
+		border-bottom-right-radius: inherit;
+		border-top: 1px solid var(--color-border-secondary);
+		.body {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: 3rem;
+			padding: 0rem 4rem 0rem 2rem;
+			.left {
+				display: flex;
+				flex-wrap: nowrap;
+				min-width: 20rem;
+				max-width: 80rem;
+				align-items: center;
+				gap: 2rem;
+			}
+		}
+	}
+}

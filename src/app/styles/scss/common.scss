@@ -1,0 +1,119 @@
+@use './break_point.scss' as *;
+
+.main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	position: relative;
+	background-color: var(--color-bg);
+	height: 100%;
+}
+
+._cont_limit,
+._cont_limit_mini,
+._cont_limit_medium {
+	width: 100%;
+	padding: 0rem 2rem;
+	margin: 0rem auto;
+	height: 100%;
+	box-sizing: border-box;
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		padding: 0rem 1.5rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		padding: 0rem 1rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		padding: 0rem 0.5rem;
+	}
+}
+._cont_limit_mini {
+	max-width: 124rem;
+}
+._cont_limit_medium {
+	max-width: 140rem;
+}
+
+.logo {
+	font-family: 'luna03', sans-serif;
+	color: var(--color-red);
+	line-height: 1;
+	a,
+	button {
+		position: relative;
+		font-size: inherit;
+		color: inherit;
+	}
+}
+._image_cover {
+	object-fit: cover;
+	height: 100%;
+	width: 100%; /* Полная ширина контейнера */
+}
+
+.old_price {
+	@include transition();
+	color: var(--color-text);
+	opacity: 0.4;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: -5px;
+		right: -5px;
+		top: 50%;
+		height: 2px;
+		@include transition();
+		background-color: var(--color-text-tertiary);
+	}
+}
+.data--item {
+	display: flex;
+	.data--key {
+		flex-grow: 1;
+		display: flex;
+		align-items: baseline;
+		text-wrap: nowrap;
+	}
+	.data--key::after {
+		content: ' ';
+		width: 100%;
+		margin-inline: 0.5em;
+		border-bottom: 1.5px dotted;
+	}
+}
+
+.icon-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.checkout--item {
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 6rem;
+	align-items: center;
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		gap: 3rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		gap: 1.5rem;
+	}
+	.left--item {
+		position: relative;
+		text-align: end;
+		overflow-wrap: break-word;
+		flex-shrink: 0;
+		width: 13rem;
+		@media (max-width: $breakpoint-SCREEN_LG_D) {
+			width: auto;
+		}
+	}
+}
+.error {
+	text-transform: lowercase;
+	color: var(--color-red);
+}

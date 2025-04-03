@@ -1,0 +1,1 @@
+export { useAdminDeleteBulkCategory } from './model';

@@ -1,0 +1,36 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	overflow: hidden;
+	background-color: var(--color-bg-category);
+	height: 100%;
+	@include transition(color);
+	&:hover {
+		color: var(--color-red);
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		padding: 1rem 1rem 1.5rem;
+		@media (max-width: $breakpoint-SCREEN_LG_D) {
+			padding: 0.5rem 0.5rem 1rem;
+		}
+	}
+	.wrapper_image {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+		.image {
+			position: relative;
+			width: inherit;
+			aspect-ratio: 1 / 1;
+			overflow: hidden;
+		}
+	}
+	.title {
+		text-align: center;
+	}
+}

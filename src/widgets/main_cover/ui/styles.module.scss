@@ -1,0 +1,16 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	.wrapper {
+		overflow: hidden;
+		width: 100%;
+		height: 100vh;
+	}
+
+	@media (max-width: $breakpoint-SCREEN_SM) {
+		padding: 0;
+	}
+}

@@ -1,0 +1,42 @@
+.root {
+	width: 100%;
+	.body {
+		width: 100%;
+		position: relative;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		gap: 2rem;
+		.image {
+			position: relative;
+			width: 7rem;
+			aspect-ratio: 1/1;
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+		.name {
+			margin-right: auto;
+		}
+		.info {
+			display: flex;
+			flex-direction: column;
+
+			.totals {
+				display: flex;
+				gap: 3rem;
+				.item {
+					display: flex;
+					flex-direction: column;
+					line-height: 1.1;
+					align-items: flex-end;
+					span {
+						&:first-child {
+							font-weight: 500;
+							margin-bottom: 0.8rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+.root {
+	position: relative;
+	width: 100%;
+	margin-bottom: 3rem;
+	.body {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		.searh {
+			width: 70rem;
+			min-width: 30rem;
+		}
+		.actions {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+}

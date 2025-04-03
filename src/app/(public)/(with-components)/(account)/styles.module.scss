@@ -1,0 +1,10 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.wrapper {
+	position: relative;
+	width: 100%;
+	display: flex;
+	gap: 14rem;
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		gap: 10rem;
+	}
+}

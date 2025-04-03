@@ -1,0 +1,107 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.card {
+	position: relative;
+
+	width: 100%;
+
+	.wrapper {
+		position: relative;
+		display: flex;
+		flex-wrap: nowrap;
+		width: 100%;
+		justify-content: space-between;
+	}
+	.image {
+		position: relative;
+		width: 11rem;
+		height: 11rem;
+		overflow: hidden;
+		margin-right: 2rem;
+		flex-shrink: 0;
+	}
+	.info {
+		margin-right: auto;
+
+		@include transition();
+
+		margin-bottom: auto;
+		&:hover {
+			color: var(--color-red);
+		}
+		.info_block {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.category {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.mob_actions {
+				display: none;
+			}
+		}
+	}
+	.actions {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-left: 1rem;
+		flex-shrink: 0;
+
+		.block_buttons {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: auto;
+		}
+	}
+	.total {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: flex-end;
+		.sale {
+			color: var(--color-pink);
+		}
+		.prices {
+			display: flex;
+
+			justify-content: center;
+			align-items: center;
+			line-height: 1;
+		}
+	}
+	.footer {
+		display: none;
+		margin-top: 1rem;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 100%;
+	}
+}
+.card {
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		.image {
+			width: 9rem;
+			height: 9rem;
+
+			margin-right: 1.5rem;
+		}
+		.actions {
+			display: none;
+		}
+		.info {
+			width: 100%;
+			.category .mob_actions {
+				display: flex;
+				gap: 1rem;
+				font-size: 1.5rem;
+			}
+		}
+		.footer {
+			display: flex;
+		}
+	}
+}

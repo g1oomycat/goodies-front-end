@@ -1,0 +1,63 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.open {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	padding: 2rem 0;
+	&:not(:first-child) {
+		border-bottom: 1px solid var(--color-main-glass);
+	}
+	&:not(:last-child) {
+		border-top: 1px solid var(--color-main-glass);
+	}
+
+	.header {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		font-weight: 500;
+		cursor: pointer;
+	}
+	.wrapper {
+		width: 100%;
+		transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+		box-sizing: content-box;
+		overflow: hidden;
+
+		.body {
+			ul {
+				padding-left: 2.5rem;
+				list-style-type: disc;
+				li {
+					list-style: disc;
+					margin-bottom: 0.5em;
+
+					span {
+						font-weight: 500;
+					}
+				}
+			}
+		}
+	}
+}
+.button_open {
+	position: relative;
+	width: 1.8rem;
+
+	aspect-ratio: 1/1;
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+	}
+}
+@media (max-width: $breakpoint-SCREEN_SM_D) {
+	.button_open {
+		width: 1.4rem;
+	}
+	.open {
+		padding: 1.5rem 0;
+	}
+}

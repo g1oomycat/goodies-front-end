@@ -1,0 +1,16 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 46rem;
+	gap: 6rem;
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		padding-top: 3rem;
+		margin: 0rem auto;
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		margin: 0;
+		width: 100%;
+	}
+}

@@ -1,0 +1,9 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	width: 100%;
+}
+.error {
+	color: var(--color-red);
+}

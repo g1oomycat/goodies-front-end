@@ -1,0 +1,14 @@
+.row,
+.column {
+	display: flex;
+}
+.row {
+	gap: 3rem;
+}
+.column {
+	gap: 1.5rem;
+}
+.item {
+	display: flex;
+	align-items: center;
+}

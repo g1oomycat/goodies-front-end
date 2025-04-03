@@ -1,0 +1,11 @@
+.breadcrumbs {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	&.admin {
+		margin-bottom: 1rem;
+	}
+	.separator {
+		margin: 0 0.4em;
+	}
+}

@@ -1,0 +1,1 @@
+export { useAdminDeleteBulkBanner } from './model';

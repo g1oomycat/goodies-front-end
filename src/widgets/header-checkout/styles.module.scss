@@ -1,0 +1,20 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: sticky;
+	width: 100%;
+	background-color: var(--color-bg);
+}
+.body {
+	position: relative;
+	width: inherit;
+	height: 8rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		height: 6rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		height: 5rem;
+	}
+}

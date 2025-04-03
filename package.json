@@ -1,22 +1,55 @@
 {
-  "name": "nazym-online-shop-front",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18"
-  }
+	"name": "nazym-online-shop-front",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.0",
+		"@mui/material": "^6.3.1",
+		"@mui/x-data-grid": "^7.27.0",
+		"@studio-freight/lenis": "^1.0.42",
+		"@studio-freight/tempus": "^0.0.44",
+		"@tanstack/react-query": "^5.51.1",
+		"@tanstack/react-query-devtools": "^5.51.1",
+		"@types/js-cookie": "^3.0.6",
+		"@types/react-transition-group": "^4.4.11",
+		"antd": "^5.21.4",
+		"axios": "^1.7.2",
+		"classnames": "^2.5.1",
+		"date-fns": "^4.1.0",
+		"framer-motion": "^11.10.0",
+		"js-cookie": "^3.0.5",
+		"jwt-decode": "^4.0.0",
+		"lodash.debounce": "^4.0.8",
+		"mui-color-input": "^6.0.0",
+		"next": "^15.2.2",
+		"next-themes": "^0.4.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-dropzone": "^14.3.8",
+		"react-hook-form": "^7.52.1",
+		"react-imask": "^7.6.1",
+		"react-input-mask": "^2.0.4",
+		"react-intersection-observer": "^9.13.1",
+		"react-sortablejs": "^6.1.4",
+		"react-spinners": "^0.15.0",
+		"react-transition-group": "^4.4.5",
+		"sass": "^1.77.8",
+		"sonner": "^1.7.3",
+		"swiper": "^11.1.9",
+		"zustand": "^5.0.0-rc.2"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@types/react-input-mask": "^3.0.6",
+		"typescript": "^5.8.2"
+	}
 }

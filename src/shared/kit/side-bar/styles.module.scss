@@ -1,0 +1,61 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.root {
+	position: absolute;
+	height: 100%;
+	background-color: var(--color-bg);
+	bottom: 0;
+
+	@include transition(width);
+}
+
+.left {
+	left: 0;
+}
+.right {
+	right: 0;
+}
+.children {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+.small {
+	width: 50rem;
+}
+.middle {
+	width: 60rem;
+}
+.large {
+	width: 70rem;
+}
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.small {
+		width: 45rem;
+	}
+	.middle {
+		width: 55rem;
+	}
+	.large {
+		width: 65rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	.small {
+		width: 40rem;
+	}
+	.middle {
+		width: 50rem;
+	}
+	.large {
+		width: 60rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.small,
+	.middle,
+	.large {
+		width: 100%;
+	}
+}

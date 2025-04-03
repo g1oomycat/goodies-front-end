@@ -1,0 +1,63 @@
+'use client';
+
+import { EnumSortUsers, EnumUserRole, getAdminUsers } from '@/entities/user';
+
+import { AdminH1 } from '@/shared/kit/admin-h1';
+import { Breadcrumbs, BreadcrumbsProps } from '@/shared/kit/breadcrumbs';
+import { PAGE_SIZE_OPTIONS } from '@/shared/kit/data-grid/page-size-option';
+import { getEnumValue } from '@/shared/lib/get-enum-value';
+import { EnumParamsSort } from '@/shared/types/sort';
+import { AdminTableUsers } from '@/widgets/admin-table/admin-table-users';
+import { AdminToolbarUsers } from '@/widgets/admin-toolbar/admin-toolbar-users/ui';
+import classNames from 'classnames';
+import { useSearchParams } from 'next/navigation';
+const BREADCRUMB: BreadcrumbsProps = {
+	items: [{ title: 'пользователи' }],
+};
+export default function AdminUsersPage() {
+	const searchParams = useSearchParams();
+	const params = Object.fromEntries(searchParams.entries());
+
+	const lastName = params.lastName ?? undefined;
+	const firstName = params.firstName ?? undefined;
+	const phone = params.phone ?? undefined;
+	const email = params.email ?? undefined;
+	const page = Number(params.page ?? 1);
+	const limit = Number(params.limit ?? PAGE_SIZE_OPTIONS[0]);
+	const sortBy = getEnumValue(EnumSortUsers, params.sortBy);
+
+	const sort = getEnumValue(EnumParamsSort, params.sort);
+	const role =
+		EnumUserRole[params.role as keyof typeof EnumUserRole] ?? undefined;
+
+	const { data, isFetching } = getAdminUsers({
+		firstName,
+		lastName,
+		phone,
+		email,
+		limit,
+		page,
+		role,
+		sort,
+		sortBy,
+	});
+
+	return (
+		<div className={classNames('root-admin-page', 'admin-container')}>
+			<Breadcrumbs {...BREADCRUMB} />
+			<AdminH1 title='пользователи' />
+			<AdminToolbarUsers
+				disabled={isFetching}
+				formParams={{ email, firstName, lastName, phone, role }}
+			/>
+			<AdminTableUsers
+				data={data}
+				isFetching={isFetching}
+				page={page}
+				limit={limit}
+				sort={sort}
+				sortBy={sortBy}
+			/>
+		</div>
+	);
+}

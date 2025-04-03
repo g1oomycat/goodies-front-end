@@ -1,0 +1,56 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+	height: calc(100% + 4px);
+	@include transition();
+	.left,
+	.right {
+		position: absolute;
+		top: -30%;
+		height: 100%;
+		width: 50%;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			height: 1.5px;
+			width: 150%;
+			background-color: var(--color-text);
+			@include transition();
+		}
+	}
+	.left {
+		left: 0;
+
+		&::before {
+			left: 0;
+			transform-origin: left;
+			rotate: 45deg; // По умолчанию
+		}
+	}
+
+	.right {
+		right: 0;
+
+		&::before {
+			right: 0;
+			transform-origin: right;
+			rotate: -45deg; // По умолчанию
+		}
+	}
+
+	// Когда isOpen === true
+	&.open {
+		transform: translateY(30%);
+		.left::before {
+			transform: rotate(-90deg); // Меняем угол
+		}
+
+		.right::before {
+			transform: rotate(90deg); // Меняем угол
+		}
+	}
+}

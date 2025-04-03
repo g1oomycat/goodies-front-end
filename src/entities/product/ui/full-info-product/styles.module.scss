@@ -1,0 +1,43 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.info_column {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	.sticky_block {
+		position: sticky;
+		width: 100%;
+		top: calc(var(--height-header) + 2rem);
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-between;
+		.top {
+			display: flex;
+			flex-direction: column;
+			.main {
+				display: flex;
+				flex-direction: column;
+
+				.prices {
+					display: flex;
+					flex-wrap: nowrap;
+
+					.prices_item {
+						display: flex;
+						flex-direction: column;
+						gap: 0.5rem;
+						align-items: flex-start;
+					}
+				}
+			}
+		}
+
+		.button_group {
+			display: flex;
+			flex-wrap: nowrap;
+			width: 100%;
+			gap: 0.5rem;
+		}
+	}
+}

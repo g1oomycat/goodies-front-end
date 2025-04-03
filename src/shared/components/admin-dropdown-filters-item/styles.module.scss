@@ -1,0 +1,9 @@
+.item {
+	width: inherit;
+	display: flex;
+	flex-direction: column;
+	.title {
+		color: var(--color-text-secondary);
+		margin-bottom: 0.7rem;
+	}
+}

@@ -1,0 +1,30 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+	background-color: var(--color-text);
+	margin-top: auto;
+}
+.body {
+	color: var(--color-pink);
+	width: inherit;
+	height: 12rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.social {
+		display: flex;
+		align-items: center;
+	}
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		height: 10rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		height: auto;
+		padding: 2rem;
+		flex-direction: column;
+		gap: 2rem;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+}

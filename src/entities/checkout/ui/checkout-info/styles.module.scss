@@ -1,0 +1,46 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.info_column {
+	position: relative;
+	width: 42rem;
+	flex-shrink: 0;
+	.info_block {
+		top: 5rem;
+		position: sticky;
+		padding: 2rem;
+		background-color: var(--color-bg-image);
+	}
+}
+.total_cart {
+	display: flex;
+	flex-direction: column;
+
+	.list {
+		display: flex;
+		flex-direction: column;
+
+		.sale {
+			color: var(--color-pink);
+		}
+	}
+	.final_total {
+		display: flex;
+		flex-wrap: nowrap;
+
+		align-items: flex-end;
+		font-weight: 500;
+		justify-content: flex-end;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.info_column {
+		width: 37rem;
+		.info_block {
+			padding: 1.5rem;
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	.info_column {
+		display: none;
+	}
+}

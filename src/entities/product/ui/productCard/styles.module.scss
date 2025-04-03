@@ -1,0 +1,191 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+$z-index-futures: 10;
+
+.product_card {
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+
+	&:hover {
+		color: var(--color-red-opacity);
+		:global(.old_price) {
+			color: var(--color-red);
+			opacity: 1;
+			&::before {
+				background-color: var(--color-red);
+			}
+		}
+		.wrapper_futures .basket {
+			opacity: 1;
+		}
+	}
+	.link {
+		opacity: 0.5;
+		position: relative;
+		width: 100%;
+		display: block;
+		@include transition();
+		z-index: 2; // Устанавливаем ссылке z-index ниже, чем кнопкам
+
+		.image_block {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 1 / 1;
+			background-color: var(--color-bg);
+			// border-radius: 1rem;
+			overflow: hidden;
+		}
+		.info {
+			text-align: left;
+			display: flex;
+			flex-direction: column;
+			.category {
+				opacity: 0.8;
+				@media (max-width: $breakpoint-SCREEN_LG_D) {
+					margin-top: 1rem;
+				}
+				@media (max-width: $breakpoint-SCREEN_SM_D) {
+					margin-top: 0.8rem;
+				}
+			}
+
+			.price {
+				display: flex;
+				flex-wrap: nowrap;
+			}
+		}
+	}
+
+	.wrapper_futures {
+		position: absolute;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		left: 0;
+		top: 0;
+		pointer-events: auto; // Включаем кликабельность элементов внутри
+
+		.wishlist {
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: $z-index-futures;
+			overflow: hidden;
+			font-size: 3.5rem;
+		}
+		.basket {
+			color: var(--color-text-inverted);
+
+			position: absolute;
+			bottom: 1.5rem;
+			right: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: $z-index-futures;
+			width: 6rem;
+			aspect-ratio: 1/1;
+
+			border-radius: 50%;
+			@include transition();
+			overflow: hidden;
+			font-size: 3rem;
+			&:hover {
+				background-color: var(--color-text);
+				scale: 1.1;
+			}
+		}
+	}
+	.zero_stock {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		width: 100%;
+		aspect-ratio: 1/1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: auto;
+		.blanc {
+			padding: 0.4rem 1.2rem;
+			background-color: var(--color-bg);
+			color: var(--color-text);
+		}
+	}
+}
+
+//медиа для кнопок избранного и корзины
+.product_card {
+	.wrapper_futures {
+		// Для сенсорных экранов (мобильные, планшеты)
+		@media (hover: none) and (pointer: coarse) {
+			.basket {
+				bottom: -3rem;
+				opacity: 1;
+				background-color: var(--color-text);
+			}
+		}
+
+		// Для устройств с мышью (ПК, ноутбуки)
+		@media (hover: hover) and (pointer: fine) {
+			.basket {
+				background-color: var(--color-text-tertiary);
+				bottom: 1.5rem;
+				opacity: 0;
+			}
+		}
+		@media (max-width: $breakpoint-SCREEN_XLG_D) {
+			.wishlist {
+				top: 1.5rem;
+				right: 1.5rem;
+				font-size: 3rem;
+			}
+			.basket {
+				width: 5rem;
+				font-size: 2.5rem;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) and (max-width: $breakpoint-SCREEN_XLG_D) {
+			.basket {
+				bottom: -2.5rem;
+			}
+		}
+		@media (max-width: $breakpoint-SCREEN_LG_D) {
+			.wishlist {
+				top: 1rem;
+				right: 1rem;
+				font-size: 2.5rem;
+			}
+			.basket {
+				width: 4.5rem;
+				font-size: 2.25rem;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) and (max-width: $breakpoint-SCREEN_LG_D) {
+			.basket {
+				bottom: -2.25rem;
+			}
+		}
+		@media (max-width: $breakpoint-SCREEN_SM_D) {
+			.wishlist {
+				top: 0.5rem;
+				right: 0.5rem;
+				font-size: 2rem;
+			}
+			.basket {
+				width: 4rem;
+				font-size: 2rem;
+				right: 1rem;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) and (max-width: $breakpoint-SCREEN_SM_D) {
+			.basket {
+				bottom: -2rem;
+			}
+		}
+	}
+}

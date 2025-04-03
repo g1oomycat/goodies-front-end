@@ -1,0 +1,40 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.root {
+	position: relative;
+	font-size: inherit;
+	@include transition();
+	color: inherit;
+
+	&:hover {
+		color: var(--color-red);
+	}
+	&.pink {
+		color: var(--color-pink);
+		&:hover {
+			color: var(--color-text-inverted);
+		}
+	}
+}
+.inverted {
+	color: var(--color-text-inverted);
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.width_icon {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	span {
+		display: inline-flex;
+		// vertical-align: middle;
+	}
+}
+.textDecoration {
+	text-underline-offset: 3px;
+	text-decoration: underline;
+}

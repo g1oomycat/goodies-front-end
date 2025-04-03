@@ -1,0 +1,52 @@
+@use './scss/break_point.scss' as *;
+@use './scss/common.scss' as *;
+@use './scss/reset.scss' as *;
+@use './scss/fonts-config.scss' as *;
+@use './scss/fonts.scss' as *;
+@use './scss/utilities.scss' as *;
+@use './scss/theme.scss' as *;
+@use './scss/margins.scss' as *;
+@use './scss/paddings.scss' as *;
+@use './scss/gaps.scss' as *;
+@use './scss/visibles.scss' as *;
+@use './scss/swiper/index.scss' as *;
+
+html {
+	font-size: 62.5%;
+	line-height: 1.2;
+	// scrollbar-gutter: stable;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	box-sizing: border-box;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	height: auto;
+	min-height: 100vh;
+	font-family: 'GraphikLCG', sans-serif;
+	font-weight: 400;
+	&.modal-open {
+		overflow: hidden;
+		padding-right: var(--scrollbar-width, 0px);
+	}
+}
+header {
+	&.modal-open {
+		padding-right: var(--scrollbar-width, 0px);
+	}
+}
+
+.tsqd-parent-container {
+	font-size: 14px !important;
+}
+:root {
+	--height-header: 6rem;
+}
+
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	:root {
+		--height-header: 5rem;
+	}
+}

@@ -1,0 +1,28 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	width: 100%;
+	.body {
+		position: relative;
+		width: 100%;
+		display: flex;
+		gap: 20rem;
+		justify-content: space-between;
+		.form_column {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+	}
+}
+.root {
+	// @media (max-width: $breakpoint-SCREEN_XXLG_D) {
+
+	// }
+
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		.body {
+			gap: 10rem;
+		}
+	}
+}

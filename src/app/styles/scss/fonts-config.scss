@@ -1,0 +1,90 @@
+//normal fonts
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Super.ttf') format('truetype');
+	font-weight: 900; /* Super */
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Black.ttf') format('truetype');
+	font-weight: 800; /* Super */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Bold.ttf') format('truetype');
+	font-weight: 700; /* Bold */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Medium.ttf') format('truetype');
+	font-weight: 500; /* Regular */
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Regular.ttf') format('truetype');
+	font-weight: 400; /* Regular */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Light.ttf') format('truetype');
+	font-weight: 300; /* Light */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-Thin.ttf') format('truetype');
+	font-weight: 100; /* Thin */
+	font-style: normal;
+}
+
+//italic fonts
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-BoldItalic.ttf')
+		format('truetype');
+	font-weight: 700; /* Bold */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-MediumItalic.ttf')
+		format('truetype');
+	font-weight: 500; /* Regular */
+	font-style: italic;
+}
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-RegularItalic.ttf')
+		format('truetype');
+	font-weight: 400; /* Regular */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'GraphikLCG';
+	src: url('../../../../public/fonts/GraphikLCG-LightItalic.ttf')
+		format('truetype');
+	font-weight: 300; /* Light */
+	font-style: italic;
+}
+
+//font LUNA for only logo
+
+@font-face {
+	font-family: 'luna03';
+	src: url('../../../../public/fonts/luna03-trial-heavy.otf') format('truetype');
+	font-weight: 500; /* Light */
+	font-style: normal;
+}

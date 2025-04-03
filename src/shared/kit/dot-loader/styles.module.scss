@@ -1,0 +1,24 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	font-size: inherit;
+}
+.item {
+	display: flex;
+	.key {
+		flex-grow: 1;
+		display: flex;
+		align-items: baseline;
+		text-wrap: nowrap;
+		&::after {
+			content: ' ';
+			width: 100%;
+			margin-inline: 0.5em;
+			border-bottom: 1.5px dotted;
+		}
+	}
+	.value {
+		font-weight: 500;
+	}
+}

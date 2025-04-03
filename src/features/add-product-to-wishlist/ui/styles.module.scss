@@ -1,0 +1,10 @@
+@import '../../../app/styles/scss/break_point.scss';
+
+.active {
+	path:first-child {
+		fill: black;
+	}
+	path:last-child {
+		fill: black;
+	}
+}

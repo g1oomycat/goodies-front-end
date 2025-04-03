@@ -1,0 +1,18 @@
+.nav {
+	position: relative;
+
+	width: 100%;
+
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	font-style: italic;
+	.sort {
+		text-align: end;
+	}
+
+	.quantity {
+		text-align: start;
+		text-transform: uppercase;
+	}
+}

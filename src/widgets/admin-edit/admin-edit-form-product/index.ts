@@ -1,0 +1,1 @@
+export { AdminEditFormProduct } from './ui';

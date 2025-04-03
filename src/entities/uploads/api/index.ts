@@ -1,0 +1,1 @@
+export { adminUploadsService } from './admin';

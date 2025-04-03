@@ -1,0 +1,41 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	overflow: hidden;
+}
+.swiper {
+	position: relative;
+	width: 100%;
+
+	overflow: visible !important;
+}
+.slide {
+	width: auto;
+	// @media (max-width: $breakpoint-SCREEN_XLG_D) {
+
+	// 	max-width: 12.5vw;
+	// }
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		width: 16rem;
+		min-width: 16rem;
+		max-width: 16rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_MD) {
+		width: 14.5rem;
+		max-width: 14.5rem;
+		min-width: 14.5rem;
+	}
+}
+.scroll_bar_hor {
+	position: relative !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	top: 0 !important;
+	right: 0 !important;
+	width: 100% !important;
+	margin-top: 4rem !important;
+	height: 1px !important;
+	border-radius: 6px !important;
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		margin-top: 3rem !important;
+	}
+}

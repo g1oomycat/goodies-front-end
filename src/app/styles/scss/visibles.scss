@@ -1,0 +1,86 @@
+@use './break_point.scss' as *;
+
+// Скрываем все элементы по умолчанию
+.web-xxlg,
+.web-xlg,
+.web-lg,
+.web-md,
+.web-sm,
+.web-xsm,
+.mob-xxlg,
+.mob-xlg,
+.mob-lg,
+.mob-md,
+.mob-sm,
+.mob-xsm {
+	display: block;
+}
+
+// --- Десктопные элементы ---
+
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.web-xlg {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	.web-lg {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.web-md {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_SM_D) {
+	.web-sm {
+		display: none;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_XSM_D) {
+	.web-xsm {
+		display: none;
+	}
+}
+
+// --- Мобильные элементы ---
+@media (min-width: $breakpoint-SCREEN_XXLG_D) {
+	.mob-xxlg {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-SCREEN_XLG) {
+	.mob-xlg {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-SCREEN_LG) {
+	.mob-lg {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-SCREEN_MD) {
+	.mob-md {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-SCREEN_SM) {
+	.mob-sm {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-SCREEN_XSM) {
+	.mob-xsm {
+		display: none;
+	}
+}

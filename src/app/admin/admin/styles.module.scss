@@ -1,0 +1,17 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	@include transition;
+	min-height: 100vh;
+	align-items: stretch;
+	.children {
+		flex: 1;
+		min-width: 30rem;
+		background-color: var(--bg-color);
+		display: flex;
+		flex-direction: column;
+	}
+}

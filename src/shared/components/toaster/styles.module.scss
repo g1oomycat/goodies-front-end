@@ -1,0 +1,9 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.my_toast {
+	color: var(--color-bg);
+	font-family: $font-text;
+	width: 33.6rem;
+	border: none;
+	border-radius: none;
+	font-size: 1.4rem;
+}

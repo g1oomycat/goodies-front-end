@@ -1,0 +1,1 @@
+export { useAdminDeleteBulkUser } from './model';

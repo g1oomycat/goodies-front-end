@@ -1,0 +1,22 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.total_cart {
+	display: flex;
+	flex-direction: column;
+
+	.list {
+		display: flex;
+		flex-direction: column;
+
+		.sale {
+			color: var(--color-pink);
+		}
+	}
+	.final_total {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: flex-end;
+		font-weight: 500;
+		justify-content: flex-end;
+	}
+}

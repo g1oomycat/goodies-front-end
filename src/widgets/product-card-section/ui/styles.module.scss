@@ -1,0 +1,23 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.body {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	gap: 30rem;
+	width: 100%;
+	height: auto;
+	@media (max-width: $breakpoint-SCREEN_XXLG_D) {
+		gap: 20rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		gap: 10rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		gap: 2.5rem;
+		flex-direction: column;
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		gap: 2rem;
+	}
+}

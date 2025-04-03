@@ -1,0 +1,33 @@
+// Breakpoint
+$breakpoint-SCREEN_XSM_D: 379px;
+$breakpoint-SCREEN_XSM: 380px;
+
+$breakpoint-SCREEN_SM_D: 599px;
+$breakpoint-SCREEN_SM: 600px;
+
+$breakpoint-SCREEN_MD_D: 767px;
+$breakpoint-SCREEN_MD: 768px;
+
+$breakpoint-SCREEN_LG_D: 1019px;
+$breakpoint-SCREEN_LG: 1020px;
+
+$breakpoint-SCREEN_XLG_D: 1359px;
+$breakpoint-SCREEN_XLG: 1360px;
+
+$breakpoint-SCREEN_XXLG_D: 1679px;
+$breakpoint-SCREEN_XXLG: 1680px;
+
+$shadow-panel: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+$z-index-popup: 100;
+$z-index-popup-mobile: 900;
+$z-index-fixed-panel: 200;
+$z-index-prompt: 150;
+$z-index-modal: 1000;
+
+@mixin transition($properties: all, $duration: 0.2s, $timing: ease-in-out) {
+	transition: $properties $duration $timing;
+}
+
+$font-logo: 'luna03', sans-serif;
+$font-text: 'GraphikLCG', sans-serif;

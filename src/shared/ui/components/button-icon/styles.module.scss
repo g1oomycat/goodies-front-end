@@ -1,0 +1,32 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.root {
+	position: relative;
+	border: none;
+	box-shadow: none;
+	@include transition();
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+	font-size: inherit;
+	&:disabled {
+		cursor: not-allowed;
+		color: var(--color-text-tertiary);
+	}
+	&:not(:disabled):hover {
+		color: var(--color-red);
+	}
+}
+
+.second {
+	&:not(:disabled):hover {
+		color: var(--color-pink);
+	}
+}
+
+.active {
+	&:not(:disabled) {
+		color: var(--color-red);
+	}
+}

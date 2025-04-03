@@ -1,0 +1,38 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.main-admin {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	position: relative;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	height: 100%;
+	border-color: var(--color-border);
+}
+
+.admin-container {
+	position: relative;
+	padding: 0rem 3rem;
+}
+.root-admin-page {
+	flex-grow: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 4rem 0rem 6rem 0rem;
+}
+
+.admin-form-block {
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 4rem;
+	align-items: flex-start;
+	.admin-form-item {
+		position: relative;
+		width: 14rem;
+		text-align: end;
+		overflow-wrap: break-word;
+		flex-shrink: 0;
+	}
+}

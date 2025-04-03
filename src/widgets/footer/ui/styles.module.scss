@@ -1,0 +1,123 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.root {
+	max-height: calc(100dvh - var(--height-header));
+	position: relative;
+	height: 60rem;
+	width: 100%;
+	clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+	background-color: var(--color-text);
+
+	.fixedContent {
+		max-height: calc(100dvh - var(--height-header));
+		position: fixed;
+		bottom: 0;
+		height: 60rem;
+		width: 100%;
+	}
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 7rem 0 2rem 0;
+	color: var(--color-pink);
+
+	.info {
+		display: flex;
+		gap: 10rem;
+		flex-wrap: nowrap;
+		.column {
+			display: flex;
+			flex-direction: column;
+			.items {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+	.logo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.main {
+			font-size: 12vw;
+			font-family: $font-logo;
+			line-height: 1;
+		}
+		.dev {
+			display: flex;
+			flex-direction: column;
+			gap: 0.3em;
+		}
+	}
+}
+.root {
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		height: 50rem;
+		.fixedContent {
+			height: 50rem;
+			.content {
+				padding: 5rem 0 2rem 0;
+				.info {
+					gap: 8rem;
+				}
+			}
+		}
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		height: 40rem;
+		.fixedContent {
+			height: 40rem;
+			.content {
+				padding: 4rem 0 2rem 0;
+				.info {
+					gap: 2rem;
+					width: 100%;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		height: 70rem;
+		.fixedContent {
+			height: 70rem;
+			.content {
+				padding: 4rem 1rem 2rem 1rem;
+				justify-content: space-between;
+
+				.info {
+					gap: 4rem;
+					width: 100%;
+					justify-content: flex-start;
+					flex-direction: column;
+
+					h4 {
+						font-size: 2.5rem;
+					}
+					.items {
+						font-size: 1.6em;
+					}
+				}
+				.logo {
+					margin-top: 1rem;
+					flex-direction: column-reverse;
+					gap: 2rem;
+					justify-content: flex-start;
+					align-items: flex-start;
+					.main {
+						display: block; // Делаем элемент блочным
+						width: 100%;
+						text-align: center;
+						font-size: 23.7vw; // Размер шрифта зависит от ширины экрана
+					}
+				}
+			}
+		}
+	}
+}

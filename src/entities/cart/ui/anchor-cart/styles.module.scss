@@ -1,0 +1,49 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.body {
+	background-color: var(--color-bg);
+	padding: 2rem 4rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 3rem;
+	.totals {
+		display: flex;
+		gap: 3rem;
+		.sale,
+		.price {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			font-weight: 500;
+			gap: 0.4rem;
+		}
+		.sale span:first-child {
+			color: var(--color-pink);
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.body {
+		padding: 1.5rem 3rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.body {
+		padding: 1rem 2rem;
+		justify-content: space-between;
+		gap: 1.5rem;
+		.totals {
+			gap: 1.5rem;
+			.sale,
+			.price {
+				justify-self: flex-start;
+				align-items: flex-start;
+				font-weight: 500;
+				gap: 0.3rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.item {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.7rem;
+	align-items: center;
+	width: 100%;
+	padding: 0.7rem;
+	border-radius: 1rem;
+	@include transition;
+	color: var(--color-text);
+	&:hover {
+		background-color: var(--color-bg-active);
+	}
+	span {
+		&:first-child {
+			display: inline-flex;
+			vertical-align: middle;
+		}
+	}
+}

@@ -1,0 +1,61 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0rem 6rem 2rem;
+	font-weight: 500;
+	text-transform: lowercase;
+	.header_button {
+		position: relative;
+		width: 100%;
+		text-align: center;
+		font-size: 3rem;
+		padding: 2rem 0rem;
+		margin: 2rem 0rem;
+		@include transition;
+		&:hover {
+			color: var(--color-red);
+		}
+
+		.header_icon {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.catalog_menu {
+		display: flex;
+		flex-direction: column;
+		font-size: 2.4rem;
+		gap: 2.5rem;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.root {
+		padding: 0rem 4rem 2rem;
+		.header_button {
+			font-size: 2.8rem;
+		}
+		.catalog_menu {
+			font-size: 2.2rem;
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.root {
+		padding: 0rem 2rem 2rem;
+		.header_button {
+			font-size: 2.4rem;
+			padding: 1rem 0rem;
+		}
+		.catalog_menu {
+			font-size: 2rem;
+		}
+	}
+}

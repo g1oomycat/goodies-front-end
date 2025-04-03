@@ -1,0 +1,39 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.container {
+	width: 100%;
+	height: 100%;
+	padding: 4rem 6rem;
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		max-width: 46rem;
+		margin: 0 auto;
+		padding: 4rem 0rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		padding: 4rem 2rem;
+	}
+}
+
+.body {
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.rules {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+.close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 3.5rem;
+}

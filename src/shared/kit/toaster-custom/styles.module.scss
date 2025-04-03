@@ -1,0 +1,26 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.body {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	opacity: 0.9;
+	.image {
+		min-width: 6.5rem;
+		min-height: 6.5rem;
+		position: relative;
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		.title {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			gap: 0.5rem;
+		}
+	}
+}

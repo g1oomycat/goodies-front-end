@@ -1,0 +1,141 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+
+	min-height: 53rem;
+	height: calc(100vh - 16rem);
+	:global(.swiper-pagination-bullet) {
+		background-color: var(--banner-color) !important;
+	}
+	.swiper {
+		position: relative;
+		height: 100%; /* Полная высота контейнера */
+		width: 100%;
+		overflow: hidden; /* Скрытие переполнения */
+
+		.wrapper_slide {
+			position: relative;
+			width: 100%; /* Полная ширина контейнера */
+			height: 100%; /* Полная высота контейнера */
+			overflow: hidden; /* Скрытие переполнения */
+			// transform-origin: right;
+			.image_cover {
+				display: block;
+				width: 100%; /* Полная ширина контейнера */
+				height: 100%; /* Полная высота контейнера */
+				object-fit: cover;
+				// object-position: right;
+			}
+		}
+	}
+}
+.wrapper_block {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	z-index: 50; // не забыть исправить !
+	overflow: hidden;
+	.wrapper_text {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding: 0 20%;
+		overflow: hidden;
+		.mid_block {
+			padding: 0 7%;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+
+			.link_banner {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				overflow: hidden;
+				font-size: 1.4rem;
+
+				.title {
+					margin-bottom: 0.7rem;
+				}
+			}
+		}
+	}
+}
+.prevButton,
+.nextButton {
+	position: absolute;
+	bottom: 0;
+	height: calc(100% - var(--height-header));
+	width: 20%;
+	z-index: 20;
+}
+.prevButton {
+	left: 0;
+	&:hover {
+		cursor: var(--prev-cursor);
+	}
+}
+
+.nextButton {
+	right: 0;
+	&:hover {
+		cursor: var(--next-cursor);
+	}
+}
+
+.customPaginationBulletActive {
+	background-color: var(--banner-color) !important;
+	opacity: 1 !important; // Замените на нужный вам цвет
+}
+
+.root {
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		height: calc(100vh - 28.5rem);
+	}
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		min-height: 45rem;
+		.prevButton,
+		.nextButton {
+			display: none;
+		}
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		height: calc(100vh - 30.5rem);
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		height: 42rem;
+		min-height: 42rem;
+		.wrapper_block {
+			.wrapper_text {
+				padding: 0;
+				.mid_block {
+					padding: 4.1rem 1.5rem;
+					.link_banner {
+						height: 100%;
+						justify-content: space-between;
+						.title {
+							margin-bottom: 1rem;
+						}
+					}
+				}
+			}
+		}
+		.horizontalPagination {
+			position: absolute !important;
+			top: 0 !important;
+			width: auto !important;
+			height: 1rem !important;
+			left: 1.5rem !important;
+			// bottom: calc(var(--height-header) + 2rem) !important;
+			top: 2rem !important;
+		}
+	}
+}

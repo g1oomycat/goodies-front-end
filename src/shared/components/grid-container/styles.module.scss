@@ -1,0 +1,31 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	display: grid;
+}
+.col3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+.col4 {
+	column-gap: 4rem;
+	row-gap: 10rem;
+	grid-template-columns: repeat(4, 1fr);
+	@media (max-width: $breakpoint-SCREEN_XLG_D) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media (max-width: $breakpoint-SCREEN_MD_D) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: $breakpoint-SCREEN_LG_D) {
+		column-gap: 3rem;
+		row-gap: 7rem;
+	}
+	@media (max-width: $breakpoint-SCREEN_SM_D) {
+		column-gap: 2rem;
+		row-gap: 6rem;
+	}
+}
+.col5 {
+	grid-template-columns: repeat(5, 1fr);
+}

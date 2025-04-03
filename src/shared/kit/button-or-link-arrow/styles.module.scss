@@ -1,0 +1,19 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+
+.button_menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-transform: lowercase;
+	width: 100%;
+	@include transition; /* Это анимация для текста и цвета стрелки */
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	text-wrap: nowrap;
+	gap: 0.5rem;
+
+	&:hover {
+		color: var(--color-red); /* Изменение цвета текста и стрелки одновременно */
+	}
+}

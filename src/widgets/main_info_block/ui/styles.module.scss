@@ -1,0 +1,94 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+}
+.wrapper {
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 4rem;
+
+	.column_h1 {
+		.title {
+			font-size: 5vw;
+			font-family: $font-logo;
+		}
+	}
+	.images {
+		position: relative;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 4rem;
+	}
+	.column_image {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		.wrapper_image {
+			position: relative;
+			overflow: hidden;
+			height: 80rem;
+			border-radius: 1rem;
+			.image {
+				transform-origin: center;
+			}
+		}
+		.info {
+			h4 {
+				color: var(--color-text-tertiary);
+			}
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.wrapper {
+		.column_image {
+			.wrapper_image {
+				height: 70rem;
+			}
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	.wrapper {
+		gap: 3rem;
+		.images {
+			gap: 3rem;
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.wrapper {
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: auto 1fr;
+		.column_h1 {
+			.title {
+				font-size: 11.5vw;
+				line-height: 1.1;
+			}
+		}
+		.column_image {
+			.wrapper_image {
+				height: 50rem;
+			}
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_SM_D) {
+	.wrapper {
+		.images {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr;
+			gap: 5rem;
+		}
+		.column_image {
+			.wrapper_image {
+				height: 45rem;
+			}
+		}
+	}
+}

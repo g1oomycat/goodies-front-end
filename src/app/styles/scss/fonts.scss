@@ -1,0 +1,412 @@
+@use './break_point.scss' as *;
+p {
+	font-size: 1.8rem;
+	line-height: 1.25;
+}
+h1 {
+	font-size: 4.8rem;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: 0.01em;
+	text-transform: lowercase;
+}
+h2 {
+	font-size: 3.6rem;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+}
+h3 {
+	font-size: 2.6rem;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: 0.01em;
+	text-transform: lowercase;
+}
+h4 {
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.1;
+	text-transform: lowercase;
+}
+h5 {
+	font-size: 1.6rem;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.fs-up-1 {
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	font-weight: 500;
+}
+.fs-up-2 {
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	font-weight: 500;
+}
+.fs-up-3 {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	font-weight: 500;
+}
+.fs-up-4 {
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	font-weight: 500;
+}
+.fs-xs-1 {
+	font-size: 1rem;
+}
+.fs-xs-2 {
+	font-size: 1.1rem;
+}
+.fs-xs-3 {
+	font-size: 1.2rem;
+}
+.fs-s-1 {
+	font-size: 1.4rem;
+}
+.fs-s-2 {
+	font-size: 1.6rem;
+}
+.fs-s-3 {
+	font-size: 1.8rem;
+}
+
+.fs-m-1 {
+	font-size: 2rem;
+}
+.fs-m-2 {
+	font-size: 2.2rem;
+}
+
+.fs-l-1 {
+	font-size: 2.6rem;
+}
+.fs-l-2 {
+	font-size: 3rem;
+}
+.fs-l-3 {
+	font-size: 3.4rem;
+}
+
+.fs-xl-1 {
+	font-size: 4rem;
+}
+.fs-xl-2 {
+	font-size: 4.5rem;
+}
+.fs-xl-3 {
+	font-size: 5rem;
+}
+
+.fs-xxl-1 {
+	font-size: 5.5rem;
+}
+.fs-xxl-2 {
+	font-size: 6rem;
+}
+.fs-xxl-3 {
+	font-size: 6.5rem;
+}
+// Line Height Utilities
+.lh-no {
+	line-height: 1;
+}
+.lh-small {
+	line-height: 1.1;
+}
+.lh-medium {
+	line-height: 1.25;
+}
+.lh-large {
+	line-height: 1.4;
+}
+// text-transform Utilities
+.low {
+	text-transform: lowercase;
+}
+.up {
+	text-transform: uppercase;
+}
+// Font Weight Utilities
+.fw-300 {
+	font-weight: 300;
+}
+.fw-400 {
+	font-weight: 400;
+}
+.fw-500 {
+	font-weight: 500;
+}
+.fw-600 {
+	font-weight: 600;
+}
+.fw-700 {
+	font-weight: 700;
+}
+.fw-900 {
+	font-weight: 900;
+}
+// Медиа-запросы для адаптации шрифтов
+@media (max-width: $breakpoint-SCREEN_LG_D) {
+	h1 {
+		font-size: 4.2rem;
+	}
+	h2 {
+		font-size: 3.1rem;
+	}
+	h3 {
+		font-size: 2.3rem;
+	}
+	h4 {
+		font-size: 1.8rem;
+	}
+	h5 {
+		font-size: 1.5rem;
+	}
+
+	.fs-s-1 {
+		font-size: 1.3rem;
+	}
+	.fs-s-2 {
+		font-size: 1.5rem;
+	}
+	.fs-s-3,
+	p {
+		font-size: 1.6rem;
+	}
+
+	.fs-m-1 {
+		font-size: 1.8rem;
+	}
+	.fs-m-2 {
+		font-size: 2rem;
+	}
+
+	.fs-l-1 {
+		font-size: 2.4rem;
+	}
+	.fs-l-2 {
+		font-size: 2.8rem;
+	}
+	.fs-l-3 {
+		font-size: 3rem;
+	}
+
+	.fs-xl-1 {
+		font-size: 3.5rem;
+	}
+	.fs-xl-2 {
+		font-size: 4rem;
+	}
+	.fs-xl-3 {
+		font-size: 4.5rem;
+	}
+
+	.fs-xxl-1 {
+		font-size: 5rem;
+	}
+	.fs-xxl-2 {
+		font-size: 4.5rem;
+	}
+	.fs-xxl-3 {
+		font-size: 6rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	h1 {
+		font-size: 3.6rem;
+	}
+	h2 {
+		font-size: 2.6rem;
+	}
+	h3 {
+		font-size: 2rem;
+	}
+	h4 {
+		font-size: 1.6rem;
+	}
+	h5 {
+		font-size: 1.4rem;
+	}
+	.fs-up-2 {
+		font-size: 1rem; //не трогать
+	}
+	.fs-up-3 {
+		font-size: 1.1rem; //не трогать
+	}
+	.fs-up-4 {
+		font-size: 1.2rem; //не трогать
+	}
+	.fs-s-1 {
+		font-size: 1.3rem;
+	}
+	.fs-s-2 {
+		font-size: 1.4rem;
+	}
+	.fs-s-3,
+	p {
+		font-size: 1.5rem;
+	}
+
+	.fs-m-1 {
+		font-size: 1.6rem;
+	}
+	.fs-m-2 {
+		font-size: 1.8rem;
+	}
+
+	.fs-l-1 {
+		font-size: 2.2rem;
+	}
+	.fs-l-2 {
+		font-size: 2.6rem;
+	}
+	.fs-l-3 {
+		font-size: 2.8rem;
+	}
+
+	.fs-xl-1 {
+		font-size: 3rem;
+	}
+	.fs-xl-2 {
+		font-size: 3.5rem;
+	}
+	.fs-xl-3 {
+		font-size: 4rem;
+	}
+
+	.fs-xxl-1 {
+		font-size: 4.3rem;
+	}
+	.fs-xxl-2 {
+		font-size: 3.8rem;
+	}
+	.fs-xxl-3 {
+		font-size: 5.3rem;
+	}
+}
+
+@media (max-width: $breakpoint-SCREEN_SM_D) {
+	h1 {
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 2.1rem;
+	}
+	h3 {
+		font-size: 1.8rem;
+	}
+	h4 {
+		font-size: 1.5rem;
+	}
+	h5 {
+		font-size: 1.3rem;
+	}
+	.fs-xs-3 {
+		font-size: 1.1rem;
+	}
+	.fs-s-1 {
+		font-size: 1.2rem;
+	}
+	.fs-s-2 {
+		font-size: 1.3rem;
+	}
+	.fs-s-3,
+	p {
+		font-size: 1.4rem;
+	}
+
+	.fs-m-1 {
+		font-size: 1.5rem;
+	}
+	.fs-m-2 {
+		font-size: 1.6rem;
+	}
+
+	.fs-l-1 {
+		font-size: 2rem;
+	}
+	.fs-l-2 {
+		font-size: 2.4rem;
+	}
+	.fs-l-3 {
+		font-size: 2.6rem;
+	}
+
+	.fs-xl-1 {
+		font-size: 2.8rem;
+	}
+	.fs-xl-2 {
+		font-size: 3rem;
+	}
+	.fs-xl-3 {
+		font-size: 3.2rem;
+	}
+
+	.fs-xxl-1 {
+		font-size: 3.5rem;
+	}
+	.fs-xxl-2 {
+		font-size: 4rem;
+	}
+	.fs-xxl-3 {
+		font-size: 4.5rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_XSM_D) {
+	.fs-s-1 {
+		font-size: 1.1rem;
+	}
+	.fs-s-2 {
+		font-size: 1.2rem;
+	}
+	.fs-s-3,
+	p {
+		font-size: 1.3rem;
+	}
+
+	.fs-m-1 {
+		font-size: 1.4rem;
+	}
+	.fs-m-2 {
+		font-size: 1.5rem;
+	}
+
+	.fs-l-1 {
+		font-size: 1.8rem;
+	}
+	.fs-l-2 {
+		font-size: 2.2rem;
+	}
+	.fs-l-3 {
+		font-size: 2.4rem;
+	}
+
+	.fs-xl-1 {
+		font-size: 2.6rem;
+	}
+	.fs-xl-2 {
+		font-size: 2.8rem;
+	}
+	.fs-xl-3 {
+		font-size: 3rem;
+	}
+
+	.fs-xxl-1 {
+		font-size: 3.2rem;
+	}
+	.fs-xxl-2 {
+		font-size: 3.6rem;
+	}
+	.fs-xxl-3 {
+		font-size: 4rem;
+	}
+}

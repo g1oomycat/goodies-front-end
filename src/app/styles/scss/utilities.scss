@@ -1,0 +1,265 @@
+// // styles/utilities.scss
+
+// // Gap Utilities
+// .gap-7 {
+// 	gap: 0.7rem;
+// }
+// .gap-10 {
+// 	gap: 1rem;
+// }
+// .gap-15 {
+// 	gap: 1.5rem;
+// }
+// .gap-20 {
+// 	gap: 2rem;
+// }
+// .gap-30 {
+// 	gap: 3rem;
+// }
+// .gap-40 {
+// 	gap: 4rem;
+// }
+
+// // Margin Utilities
+// .m-7 {
+// 	margin: 0.7rem;
+// }
+// .m-10 {
+// 	margin: 1rem;
+// }
+// .m-15 {
+// 	margin: 1.5rem;
+// }
+// .m-30 {
+// 	margin: 3rem;
+// }
+// .m-45 {
+// 	margin: 4.5rem;
+// }
+// .m-60 {
+// 	margin: 6rem;
+// }
+// .m-100 {
+// 	margin: 10rem;
+// }
+// .m-160 {
+// 	margin: 16rem;
+// }
+
+// // Margin Top Utilities 20 60
+// .mt-7 {
+// 	margin-top: 0.7rem;
+// }
+// .mt-10 {
+// 	margin-top: 1rem;
+// }
+// .mt-15 {
+// 	margin-top: 1.5rem;
+// }
+// .mt-20 {
+// 	margin-top: 2rem;
+// }
+// .mt-30 {
+// 	margin-top: 3rem;
+// }
+// .mt-45 {
+// 	margin-top: 4.5rem;
+// }
+// .mt-60 {
+// 	margin-top: 6rem;
+// }
+// .mt-100 {
+// 	margin-top: 10rem;
+// }
+// .mt-160 {
+// 	margin-top: 16rem;
+// }
+
+// // Margin Bottom Utilities 15 20 10 45
+// .mb-7 {
+// 	margin-bottom: 0.7rem;
+// }
+// .mb-10 {
+// 	margin-bottom: 1rem;
+// }
+// .mb-15 {
+// 	margin-bottom: 1.5rem;
+// }
+// .mb-20 {
+// 	margin-bottom: 2rem;
+// }
+// .mb-30 {
+// 	margin-bottom: 3rem;
+// }
+// .mb-45 {
+// 	margin-bottom: 4.5rem;
+// }
+
+// .mb-60 {
+// 	margin-bottom: 6rem;
+// }
+// .mb-80 {
+// 	margin-bottom: 8rem;
+// }
+// .mb-100 {
+// 	margin-bottom: 10rem;
+// }
+// .mb-160 {
+// 	margin-bottom: 16rem;
+// }
+
+// // Padding Utilities
+// .p-7 {
+// 	padding: 0.7rem;
+// }
+// .p-10 {
+// 	padding: 1rem;
+// }
+// .p-15 {
+// 	padding: 1.5rem;
+// }
+// .p-30 {
+// 	padding: 3rem;
+// }
+// .p-45 {
+// 	padding: 4.5rem;
+// }
+// .p-60 {
+// 	padding: 6rem;
+// }
+// .p-100 {
+// 	padding: 10rem;
+// }
+// .p-160 {
+// 	padding: 16rem;
+// }
+
+// // Padding Top Utilities
+// .pt-7 {
+// 	padding-top: 0.7rem;
+// }
+// .pt-10 {
+// 	padding-top: 1rem;
+// }
+// .pt-15 {
+// 	padding-top: 1.5rem;
+// }
+// .pt-30 {
+// 	padding-top: 3rem;
+// }
+// .pt-45 {
+// 	padding-top: 4.5rem;
+// }
+// .pt-60 {
+// 	padding-top: 6rem;
+// }
+// .pt-100 {
+// 	padding-top: 10rem;
+// }
+// .pt-160 {
+// 	padding-top: 16rem;
+// }
+
+// // Padding Bottom Utilities
+// .pb-7 {
+// 	padding-bottom: 0.7rem;
+// }
+// .pb-10 {
+// 	padding-bottom: 1rem;
+// }
+// .pb-15 {
+// 	padding-bottom: 1.5rem;
+// }
+// .pb-30 {
+// 	padding-bottom: 3rem;
+// }
+// .pb-45 {
+// 	padding-bottom: 4.5rem;
+// }
+// .pb-60 {
+// 	padding-bottom: 6rem;
+// }
+// .pb-100 {
+// 	padding-bottom: 10rem;
+// }
+// .pb-160 {
+// 	padding-bottom: 16rem;
+// }
+
+// // Font Size Utilities 12 22 16 70
+// .fs-10 {
+// 	font-size: 1rem;
+// }
+// .fs-12 {
+// 	font-size: 1.2rem;
+// }
+// .fs-14 {
+// 	font-size: 1.4rem;
+// }
+// .fs-16 {
+// 	font-size: 1.6rem;
+// }
+// .fs-18 {
+// 	font-size: 1.8rem;
+// }
+// .fs-20 {
+// 	font-size: 2rem;
+// }
+// .fs-22 {
+// 	font-size: 2.2rem;
+// }
+// .fs-24 {
+// 	font-size: 2.4rem;
+// }
+// .fs-26 {
+// 	font-size: 2.4rem;
+// }
+// .fs-30 {
+// 	font-size: 3rem;
+// }
+// .fs-36 {
+// 	font-size: 3.6rem;
+// }
+// .fs-48 {
+// 	font-size: 4.8rem;
+// }
+// .fs-60 {
+// 	font-size: 6rem;
+// }
+// .fs-70 {
+// 	font-size: 7rem;
+// }
+
+// // Line Height Utilities
+// .lh-1 {
+// 	line-height: 1;
+// }
+// .lh-1-2 {
+// 	line-height: 1.2;
+// }
+// .lh-1-5 {
+// 	line-height: 1.5;
+// }
+// .lh-2 {
+// 	line-height: 2;
+// }
+
+// // Font Weight Utilities
+// .fw-300 {
+// 	font-weight: 300;
+// }
+// .fw-400 {
+// 	font-weight: 400;
+// }
+// .fw-500 {
+// 	font-weight: 500;
+// }
+// .fw-600 {
+// 	font-weight: 600;
+// }
+// .fw-700 {
+// 	font-weight: 700;
+// }
+// .fw-900 {
+// 	font-weight: 900;
+// }

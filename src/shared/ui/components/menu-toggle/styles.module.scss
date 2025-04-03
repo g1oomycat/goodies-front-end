@@ -1,0 +1,7 @@
+@import '/src/app/styles/scss/break_point.scss';
+.burger {
+	@include transition();
+	&:hover {
+		color: var(--color-red);
+	}
+}

@@ -1,0 +1,78 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	display: flex;
+	gap: 3rem;
+	width: 100%;
+	height: auto;
+	align-items: stretch;
+
+	// Основной слайдер
+	.swiper {
+		height: 100%;
+		width: 100%;
+		aspect-ratio: 1 / 1; // Квадрат
+	}
+
+	// Миниатюры (правый слайдер)
+	.wrapper_thumb {
+		position: relative;
+		width: 10rem; // Фиксированная ширина
+		display: flex;
+		gap: 0.5rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.thumb {
+		width: 100%;
+		height: 100%;
+		max-height: calc(
+			var(--items-count, 1) * 10rem + (var(--items-count, 1) - 1) * 10px
+		);
+	}
+}
+.img_product_wrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1/1; // Квадратные миниатюры
+}
+
+.nextButton,
+.prevButton {
+	display: block;
+}
+
+.customPaginationBulletActive {
+	background-color: var(--color-text) !important;
+	opacity: 1 !important; // Замените на нужный вам цвет
+}
+
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.root {
+		gap: 2rem;
+		.wrapper_thumb {
+			width: 8rem;
+		}
+		.thumb {
+			max-height: calc(
+				var(--items-count, 1) * 8rem + (var(--items-count, 1) - 1) * 10px
+			);
+		}
+	}
+}
+@media (min-width: $breakpoint-SCREEN_LG) {
+	.root {
+		display: none;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_SM_D) {
+	.root {
+		gap: 0rem;
+		.wrapper_thumb {
+			display: none;
+		}
+	}
+}

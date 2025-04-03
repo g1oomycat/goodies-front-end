@@ -1,0 +1,122 @@
+@use '/src/app/styles/scss/break_point.scss' as *;
+.root {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 5rem;
+	.menu {
+		width: inherit;
+		li {
+			width: 100%;
+		}
+	}
+}
+
+.main_menu,
+.sub_menu {
+	padding: 0 6rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-transform: lowercase;
+	width: 100%;
+}
+.main_menu {
+	font-weight: 500;
+	font-size: 4rem;
+	gap: 2.4rem;
+	margin-bottom: 5rem;
+	letter-spacing: 0.02em;
+}
+.sub_menu {
+	font-size: 2.6rem;
+	gap: 1.5rem;
+}
+
+.footer {
+	margin-top: 10rem;
+	padding-bottom: 2rem;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-bg-image);
+	.account {
+		padding: 0 6rem;
+		height: 8rem;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid var(--color-main-glass);
+		font-weight: 500;
+		font-size: 2.4rem;
+		.acc_link,
+		.acc_logo {
+			display: inline-flex;
+			vertical-align: middle;
+		}
+		.acc_logo {
+			font-size: 2.6rem;
+			margin-right: 0.7rem;
+		}
+	}
+	.contacts {
+		display: flex;
+		gap: 2.5rem;
+		padding: 0 6rem;
+		margin-top: 3rem;
+		font-size: 3rem;
+	}
+}
+@media (max-width: $breakpoint-SCREEN_XLG_D) {
+	.main_menu {
+		font-size: 3.5rem;
+		padding: 0 4rem;
+	}
+	.sub_menu {
+		font-size: 2.2rem;
+		padding: 0 4rem;
+	}
+	.footer {
+		.account {
+			font-size: 2rem;
+			padding: 0 4rem;
+			height: 7rem;
+			.acc_logo {
+				font-size: 2.2rem;
+			}
+		}
+		.contacts {
+			padding: 0 4rem;
+			font-size: 2.6rem;
+			gap: 2.5rem;
+			margin-top: 2.5rem;
+		}
+	}
+}
+@media (max-width: $breakpoint-SCREEN_MD_D) {
+	.root {
+		padding-top: 4rem;
+	}
+	.main_menu {
+		font-size: 3rem;
+		padding: 0 2rem;
+	}
+	.sub_menu {
+		font-size: 2rem;
+		padding: 0 2rem;
+	}
+	.footer {
+		.account {
+			font-size: 1.8rem;
+			padding: 0 2rem;
+			.acc_logo {
+				font-size: 2rem;
+			}
+		}
+		.contacts {
+			font-size: 2.4rem;
+			padding: 0 2rem;
+			gap: 2rem;
+		}
+	}
+}

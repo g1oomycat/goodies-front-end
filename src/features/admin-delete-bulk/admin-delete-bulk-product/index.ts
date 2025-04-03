@@ -1,0 +1,1 @@
+export { useAdminDeleteBulkProduct } from './model';
