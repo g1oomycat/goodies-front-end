@@ -17,6 +17,8 @@ import { Metadata } from 'next';
 // 	() => import('@/widgets/cart-side-bar').then(m => m.CartSideBar),
 // 	{ ssr: false }
 // );
+
+export const revalidate = 40;
 export const metadata: Metadata = {
 	title: SITE_TITLE,
 	description: SITE_DESCRIPTION,

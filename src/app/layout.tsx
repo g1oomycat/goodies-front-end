@@ -7,6 +7,7 @@ import { AuthProvider } from './providers/auth-provider';
 import { QueryProvider } from './providers/query-provider';
 
 export const metadata: Metadata = {
+	metadataBase: new URL(process.env.NEXT_URL || ''),
 	keywords: SITE_KEYWORDS,
 	publisher: 'Nasyrov',
 	icons: SITE_ICONS,
@@ -18,8 +19,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='ru-KZ' suppressHydrationWarning>
+		<html lang='ru-KZ' suppressHydrationWarning data-theme='light'>
 			<head>
+				<meta name='mobile-web-app-capable' content='yes' />
 				<meta name='apple-mobile-web-app-capable' content='yes' />
 				<meta name='msapplication-TileColor' content='#ffffff' />
 				<meta

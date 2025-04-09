@@ -4,12 +4,16 @@ import { BannerContent } from './banner-content';
 export const revalidate = 3600; // invalidate every hour
 
 async function getData() {
+	console.log('revalidate Banner');
+	if (process.env.NEXT_PHASE === 'phase-production-build')
+		return { result: [] };
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/banners?limit=8&sort=desc&sortBy=position&isActive=y`,
+		`${process.env.BASE_URL}/banners?limit=8&sort=desc&sortBy=position&isActive=y`,
 		{
 			next: { tags: ['banners'] },
 		}
 	);
+	console.log('revalidate Banner 2');
 	return res.json();
 }
 

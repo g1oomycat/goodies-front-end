@@ -47,7 +47,7 @@ export async function middleware(request: NextRequest) {
 	if (refreshToken && !accessToken) {
 		try {
 			const refreshResponse = await fetch(
-				`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login/access-token`,
+				`${process.env.BASE_URL}/auth/login/access-token`,
 				{
 					method: 'POST',
 					credentials: 'include',

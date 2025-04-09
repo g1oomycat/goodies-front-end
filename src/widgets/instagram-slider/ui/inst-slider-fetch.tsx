@@ -2,8 +2,10 @@ import { IGetAllReviewsInstResponse } from '@/entities/reviews-inst';
 import { InstagramSliderContent } from './inst-slider-content';
 
 async function getData() {
+	if (process.env.NEXT_PHASE === 'phase-production-build')
+		return { result: [] };
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/reviews-instagram?limit=12&sort=desc&sortBy=position`,
+		`${process.env.BASE_URL}/reviews-instagram?limit=12&sort=desc&sortBy=position`,
 		{
 			next: { tags: ['reviews-inst-slider'] },
 		}

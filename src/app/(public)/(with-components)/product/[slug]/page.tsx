@@ -1,4 +1,4 @@
-import { productsService } from '@/entities/product';
+import { IGetAllProductsResponse, IProductsResponse } from '@/entities/product';
 import { getRouteProduct } from '@/shared/constants/router';
 import {
 	INDEX_PAGE,
@@ -20,10 +20,14 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	// if (process.env.NEXT_PHASE === 'phase-production-build') return {};
 	// read route params
 	const { slug } = await params;
 	// fetch data
-	const product = await productsService.getProductWithSlug(slug);
+	const response = await fetch(`${process.env.BASE_URL}/products/${slug}`);
+	if (!response.ok) notFound();
+
+	const product: IProductsResponse = await response.json();
 
 	const title = `${product.name} купить в Алматы по лучшим ценам | «${SITE_NAME}»`;
 	const url = process.env.NEXT_URL + getRouteProduct(slug);
@@ -67,17 +71,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getData(slug: string) {
-	const response = await productsService.getProductWithSlug(slug);
-	if (!response) notFound();
+	try {
+		const response = await fetch(`${process.env.BASE_URL}/products/${slug}`);
+		if (!response.ok) notFound();
 
-	return response;
+		const product: IProductsResponse = await response.json();
+		return product;
+	} catch {
+		notFound();
+	}
 }
 
 export async function generateStaticParams() {
-	const data = await productsService.getProducts({});
-	return data.result.map(product => ({
-		slug: product.slug,
-	}));
+	// if (process.env.NEXT_PHASE === 'phase-production-build') return [];
+
+	try {
+		const response = await fetch(`${process.env.BASE_URL}/products?limit=0`);
+		if (!response.ok) return [];
+
+		const data: IGetAllProductsResponse = await response.json();
+		return data.result.map(product => ({ slug: product.slug }));
+	} catch {
+		return [];
+	}
 }
 
 export default async function Page({

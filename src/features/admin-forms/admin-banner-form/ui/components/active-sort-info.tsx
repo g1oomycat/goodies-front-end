@@ -39,7 +39,7 @@ export const ActiveSortInfo = ({ control }: Props) => {
 					type='date'
 				/>
 			</AdminFormCreateEditItem>
-			;
+
 			<AdminFormCreateEditItem title='сортировка'>
 				<InputMui
 					name='position'

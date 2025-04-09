@@ -8,8 +8,10 @@ export const revalidate = 3600; // invalidate every hour
 type Props = { sort: IUpSaleSort };
 
 async function getData(sortBy: string, sort: string) {
+	if (process.env.NEXT_PHASE === 'phase-production-build')
+		return { result: [] };
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/products?limit=15&sort=${sort}&sortBy=${sortBy}`,
+		`${process.env.BASE_URL}/products?limit=15&sort=${sort}&sortBy=${sortBy}`,
 		{
 			next: { tags: ['products-up-sale-block'] },
 		}

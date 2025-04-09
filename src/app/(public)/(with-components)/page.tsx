@@ -8,7 +8,7 @@ import {
 	UpSaleBlockFetch,
 } from '@/widgets/up-sale-block/index';
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<>
 			<Banner />

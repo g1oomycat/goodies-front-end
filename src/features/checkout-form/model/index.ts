@@ -40,8 +40,7 @@ export const useCreateOrder = (cart: ICartResponse, user: IUsersResponse) => {
 		isPending: isPendingOrder,
 	} = createOrderPublic();
 
-	const { mutateAsync: mutateAsyncUser, isPending: isPendingUser } =
-		updateUserSelf();
+	const { mutate: mutateUser, isPending: isPendingUser } = updateUserSelf();
 
 	const onSubmit: SubmitHandler<IOrderCreateForm> = async ({
 		userInfo,
@@ -75,8 +74,9 @@ export const useCreateOrder = (cart: ICartResponse, user: IUsersResponse) => {
 			// Отправка данных заказа
 			const currentOrder = await mutateAsyncOrder(orderData);
 			// Обновление данных пользователя
-			await mutateAsyncUser({
+			mutateUser({
 				...user,
+				dateOfBirth: user.dateOfBirth ?? undefined,
 				phone: user.phone ?? userInfo.phone,
 				address: user.address ?? address,
 				firstName: user.firstName ?? userInfo.firstName,

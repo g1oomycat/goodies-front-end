@@ -14,7 +14,7 @@ export const Image = ({ control }: Props) => {
 			<DragDropInput
 				title={` Перетащите или выберите до ${imageConfig.categories.maxCount} фотографий (размер ${imageConfig.categories.width}×${imageConfig.categories.height}).`}
 				control={control}
-				name='imageLG'
+				name='image'
 				maxFiles={imageConfig.categories.maxCount}
 				rules={requiredValidation}
 			/>

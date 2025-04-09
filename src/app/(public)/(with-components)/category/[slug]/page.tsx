@@ -1,8 +1,9 @@
-import { categoriesService } from '@/entities/category';
+import NotFound from '@/app/not-found';
+import { ICategoriesResponse } from '@/entities/category';
 import {
 	EnumProductSort,
 	EnumProductSortOptionPublic,
-	productsService,
+	IGetAllProductsResponse,
 	sortMapProducts,
 } from '@/entities/product';
 import { getRouteCategory, getRouteMain } from '@/shared/constants/router';
@@ -16,17 +17,22 @@ import { getEnumValue } from '@/shared/lib/get-enum-value';
 import { EnumParamsSort } from '@/shared/types/sort';
 import { CategoryProductSection } from '@/widgets/category-product-section';
 import { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 type Props = {
 	params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	if (process.env.NEXT_PHASE === 'phase-production-build') return {};
 	// read route params
 	const { slug } = await params;
 	// fetch data
-	const category = await categoriesService.getCategoryWithSlug(slug);
+	const response = await fetch(`${process.env.BASE_URL}/categories/${slug}`);
+	if (!response.ok) {
+		NotFound();
+	}
 
+	const category: ICategoriesResponse = await response.json();
 	const title = `модные ${category.name} купить в Алматы по лучшим ценам | «${SITE_NAME}»`;
 	const url = process.env.NEXT_URL + getRouteCategory(slug);
 	return {
@@ -75,17 +81,21 @@ async function getData(
 	sortBy: EnumProductSort,
 	sort: EnumParamsSort
 ) {
-	const category = await categoriesService.getCategoryWithSlug(slug);
-	if (!category || !category._count) notFound();
-	const products = await productsService.getProducts({
-		categoryId: category.id,
-		page: 1,
-		limit: LIMIT_PRODUCTS,
-		sortBy,
-		sort,
-	});
+	const responseCategory = await fetch(
+		`${process.env.BASE_URL}/categories/${slug}`
+	);
+	if (!responseCategory.ok) NotFound();
+	const category: ICategoriesResponse = await responseCategory.json();
 
-	if (!products || products.totalResult === 0) redirect(getRouteMain());
+	if (!category._count) redirect(getRouteMain());
+	const responseProduct = await fetch(
+		`${process.env.BASE_URL}/products?categoryId=${category.id}&page=1&limit=${LIMIT_PRODUCTS}&sortBy=${sortBy}&sort=${sort}`
+	);
+
+	if (!responseProduct.ok) NotFound();
+
+	const products: IGetAllProductsResponse = await responseProduct.json();
+	if (!products.totalResult) redirect(getRouteMain());
 
 	return { category, products };
 }

@@ -7,6 +7,7 @@ import { IBannerForm, IBannerResponse } from '@/entities/banner';
 import { IUploadsResponse } from '@/entities/uploads';
 import { useUploadImagesAdmin } from '@/entities/uploads/model/upload-images';
 import { formatDateLong } from '@/shared/lib/format-date';
+import { addDays } from 'date-fns';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 export const useCreateOrEditBannerAdmin = ({ data }: Props) => {
 	// Инициализируем форму с начальными значениями (если редактирование — берём из `data`)
 	const dateNow = formatDateLong(new Date().toString());
+	const dateTomorrow = formatDateLong(addDays(new Date(), 7).toString());
 	const { handleSubmit, control, reset } = useForm<IBannerForm>({
 		mode: 'onChange',
 		defaultValues: {
@@ -32,7 +34,7 @@ export const useCreateOrEditBannerAdmin = ({ data }: Props) => {
 			link: data?.link ?? '',
 			position: data?.position.toString() ?? '',
 
-			endDate: data?.endDate ? formatDateLong(data.endDate) : dateNow,
+			endDate: data?.endDate ? formatDateLong(data.endDate) : dateTomorrow,
 			startDate: data?.startDate ? formatDateLong(data.startDate) : dateNow,
 		},
 	});
@@ -118,11 +120,11 @@ export const useCreateOrEditBannerAdmin = ({ data }: Props) => {
 				buttonBG: '#000000',
 				buttonTextColor: '#ffffff',
 				textColor: '#000000',
-				endDate: '',
+				endDate: dateTomorrow,
 				imageLG: [],
 				imageMD: [],
 				imageSM: [],
-				isActive: false,
+				isActive: true,
 				link: '',
 				position: undefined,
 				startDate: dateNow,

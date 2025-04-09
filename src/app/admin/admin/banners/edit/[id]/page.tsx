@@ -20,8 +20,10 @@ export default function AdminEditProduct() {
 	if (!isLoading && (isError || !data)) {
 		notFound();
 	}
+	console.log(data);
+
 	return (
-		<div className={classNames('root-admin-page', 'admin-container')}>
+		<div className={classNames('root-admin-page admin-container')}>
 			<Breadcrumbs {...BC(data?.title)} loading={isLoading} />
 			<AdminH1 title={`баннер - ${data?.title}`} loading={isLoading} />
 			<AdminEditFormBanner data={data} />

@@ -4,4 +4,5 @@ import { revalidateTag } from 'next/cache';
 
 export async function revalidateCategory() {
 	revalidateTag('categories-catalog');
+	revalidateTag('categories-slider');
 }

@@ -34,7 +34,6 @@ export const CategoryAttributesItemForm = ({
 	const type = useWatch({ control, name: `${name}.type` }); // Следим за типом
 	// Если type !== SELECT, сбрасываем options
 	useEffect(() => {
-		console.log(type, 'type');
 		if (type !== EnumAttribute.SELECT) {
 			setValue(`${name}.options`, []);
 		}

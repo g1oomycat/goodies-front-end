@@ -68,9 +68,9 @@ export const AdminCategoryForm = ({
 					size='s'
 					disabled={isPending}
 					isLoading={isPending}
-					form={'categoryForm'}
+					form='categoryForm'
 				>
-					{data ? 'Обновить категорию' : 'Создать новый категорию'}
+					{data ? 'Обновить категорию' : 'Создать новую категорию'}
 				</ButtonCustom>
 			}
 		/>

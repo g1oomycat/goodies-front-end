@@ -24,7 +24,7 @@ export default function PageSuccess() {
 	now.setHours(now.getHours() + 3);
 
 	useEffect(() => {
-		if (!isLoading && !data) setLoading(false);
+		if (!isLoading && data) setLoading(false);
 	}, [data, isLoading]);
 
 	if (!data) {

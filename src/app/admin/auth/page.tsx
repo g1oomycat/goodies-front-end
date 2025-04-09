@@ -8,7 +8,7 @@ export default function AuthAdmin() {
 	return (
 		<div className={styles.root}>
 			<div className={styles.wrapper}>
-				<span className={classNames(styles.title, 'fs-m-low-3')}>
+				<span className={classNames(styles.title, 'fs-l-1')}>
 					Войти в админку
 				</span>
 

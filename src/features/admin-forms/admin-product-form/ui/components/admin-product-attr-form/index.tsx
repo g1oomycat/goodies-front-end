@@ -34,7 +34,7 @@ export const ProductAttributesForm = ({ selectedCategory, control }: Props) => {
 			attr.type === EnumAttribute.BOOLEAN
 		) {
 			return (
-				<AdminFormCreateEditBlock title='Характеристики *'>
+				<AdminFormCreateEditBlock title='Характеристики *' key={attr.id}>
 					<AdminFormCreateEditItem title={attr.name} key={fieldName}>
 						<AutocompleteMui
 							name={fieldName}
@@ -56,7 +56,7 @@ export const ProductAttributesForm = ({ selectedCategory, control }: Props) => {
 		}
 
 		return (
-			<AdminFormCreateEditBlock title='Характеристики *'>
+			<AdminFormCreateEditBlock title='Характеристики *' key={attr.id}>
 				{' '}
 				<AdminFormCreateEditItem title={attr.name} key={fieldName}>
 					<InputMui

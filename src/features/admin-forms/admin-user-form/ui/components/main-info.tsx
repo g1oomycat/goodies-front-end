@@ -36,7 +36,7 @@ export const MainInfo = ({ control, data, role }: Props) => {
 					name='password'
 					control={control}
 					placeholder={data ? 'введите новый пароль' : 'пароль'}
-					validation={passwordValidation(true)}
+					validation={passwordValidation(!data)}
 					sx={sxMuiInput}
 					size='small'
 					variant='outlined'

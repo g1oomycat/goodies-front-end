@@ -41,6 +41,7 @@
 		"react-spinners": "^0.15.0",
 		"react-transition-group": "^4.4.5",
 		"sass": "^1.77.8",
+		"sharp": "^0.33.5",
 		"sonner": "^1.7.3",
 		"swiper": "^11.1.9",
 		"zustand": "^5.0.0-rc.2"

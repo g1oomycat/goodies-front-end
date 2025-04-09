@@ -21,6 +21,7 @@ import { RadioMui } from '@/shared/ui/components/radio-mui';
 
 import { ButtonCustom } from '@/shared/ui/components/button';
 import { CheckboxMui } from '@/shared/ui/components/checkbox';
+import { InputMuiMask } from '@/shared/ui/components/input-masks-mui';
 import { useCreateOrder } from '../model';
 import styles from './styles.module.scss';
 
@@ -77,7 +78,8 @@ export const CheckoutForm = ({ cart, user }: Props) => {
 			{/* 2. Получатель */}
 			<CheckoutStep step={2} totalSteps={3} title='Получатель'>
 				<CheckoutItem title='Контакты'>
-					<InputMui
+					<InputMuiMask
+						type='phone'
 						control={control}
 						name='userInfo.phone'
 						validation={telephoneValidation(true)}

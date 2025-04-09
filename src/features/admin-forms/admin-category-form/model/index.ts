@@ -26,7 +26,7 @@ export const useCreateOrEditCategoryAdmin = ({ data }: Props) => {
 			attributes: data?.attributes ?? [
 				{
 					name: '',
-					filterable: false,
+					filterable: true,
 					options: [],
 					type: EnumAttribute.STRING,
 				},
@@ -49,8 +49,6 @@ export const useCreateOrEditCategoryAdmin = ({ data }: Props) => {
 
 	// Функция обработки формы
 	const onSubmit: SubmitHandler<ICategoriesForm> = async submitData => {
-		console.log(submitData);
-
 		let image: string = '';
 		try {
 			if (submitData.image[0].file) {
@@ -60,6 +58,8 @@ export const useCreateOrEditCategoryAdmin = ({ data }: Props) => {
 				image = submitData.image[0].id;
 			}
 		} catch (error) {
+			console.error(error);
+
 			return;
 		}
 

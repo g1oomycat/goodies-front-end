@@ -6,13 +6,15 @@ export const sxMuiInput = {
 		color: 'var(--color-text) !important',
 	},
 
-	'& .MuiOutlinedInput-notchedOutline': {
-		borderColor: 'var(--color-border) !important',
-		'&:hover': {
-			borderColor: 'red !important',
-		},
-	},
+	// '& .MuiOutlinedInput-notchedOutline': {
+	// 	borderColor: 'var(--color-border) !important',
+	// },
 	'& .MuiOutlinedInput-root': {
+		borderColor: 'var(--color-border) !important',
+		color: 'var(--color-text) !important',
+		'& .MuiOutlinedInput-notchedOutline': {
+			borderColor: 'var(--color-border) !important',
+		},
 		'&:hover .MuiOutlinedInput-notchedOutline': {
 			borderColor: 'var(--color-border) !important', // 🔥 Работает ховер на input
 		},
@@ -21,11 +23,12 @@ export const sxMuiInput = {
 		},
 		// 🔥 Бордер красный при ошибке
 		'&.Mui-error .MuiOutlinedInput-notchedOutline': {
-			borderColor: 'red !important',
+			borderColor: 'var(--color-red) !important',
 		},
 	},
 
-	'& .MuiInputBase-input': {
+	'&.MuiInputBase-input': {
+		borderColor: 'var(--color-border) !important',
 		color: 'var(--color-text) !important',
 	},
 };

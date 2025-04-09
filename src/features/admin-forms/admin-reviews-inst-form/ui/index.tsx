@@ -56,7 +56,7 @@ export const AdminReviewsInstForm = ({
 					size='s'
 					disabled={isPending}
 					isLoading={isPending}
-					form={'bannerForm'}
+					form='reviewsInstForm'
 					mode='admin'
 				>
 					{data ? 'Обновить отзыв инсты' : 'Создать новый отзыв инсты'}

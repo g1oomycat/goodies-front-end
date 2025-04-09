@@ -1,18 +1,25 @@
-import { categoriesService } from '@/entities/category';
-import { productsService } from '@/entities/product';
+import { IGetAllCategoriesResponse } from '@/entities/category';
+import { IGetAllProductsResponse } from '@/entities/product';
 import { getRouteCategory, getRouteProduct } from '@/shared/constants/router';
 import type { MetadataRoute } from 'next';
 
 export const revalidate = 300;
 
-const BASE_URL = process.env.NEXT_URL as string;
+const URL = process.env.NEXT_URL as string;
 
 async function getData() {
 	try {
-		const [categoriesData, productsData] = await Promise.all([
-			categoriesService.getCategories({ limit: 0 }),
-			productsService.getProducts({ limit: 0, isLowStock: false }),
+		if (process.env.NEXT_PHASE === 'phase-production-build') {
+			return { categoriesData: { result: [] }, productsData: { result: [] } }; // 🚫 не дергаем базу во время билда
+		}
+		const [responseCategories, responseProducts] = await Promise.all([
+			fetch(`${process.env.BASE_URL}/categories?limit=0`),
+			fetch(`${process.env.BASE_URL}/products?limit=0`),
 		]);
+
+		const categoriesData: IGetAllCategoriesResponse =
+			await responseCategories.json();
+		const productsData: IGetAllProductsResponse = await responseProducts.json();
 		return { categoriesData, productsData };
 	} catch (error) {
 		console.error('Ошибка при получении данных для sitemap:', error);
@@ -24,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const { categoriesData, productsData } = await getData();
 	const formatDate = new Date().toISOString();
 	const categories: MetadataRoute.Sitemap = categoriesData.result.map(item => ({
-		url: `${BASE_URL}${getRouteCategory(item.slug)}`,
+		url: `${URL}${getRouteCategory(item.slug)}`,
 		lastModified: formatDate,
 		changeFrequency: 'daily',
 		priority: 0.8,
@@ -32,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	}));
 
 	const products: MetadataRoute.Sitemap = productsData.result.map(item => ({
-		url: `${BASE_URL}${getRouteProduct(item.slug)}`,
+		url: `${URL}${getRouteProduct(item.slug)}`,
 		lastModified: formatDate,
 		changeFrequency: 'daily',
 		priority: 0.7,
@@ -40,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	}));
 	return [
 		{
-			url: BASE_URL,
+			url: URL,
 			lastModified: new Date(),
 			changeFrequency: 'yearly',
 			priority: 1,

@@ -28,7 +28,7 @@ export const AdminAuthForm = () => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			{error && (
-				<span className={classNames(styles.error, 'fs-s-low-2')}>
+				<span className={classNames(styles.error, 'fs-s-1 low')}>
 					{errorMessage}
 				</span>
 			)}
