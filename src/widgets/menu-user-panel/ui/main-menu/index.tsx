@@ -23,23 +23,6 @@ export const MenuUserPanel = ({ logOutAction }: Props) => {
 					<LinkItemMenuUserPanel label='профиль' href={getRouteAccount()} />
 					<LinkItemMenuUserPanel label='избранное' href={getRouteFavorites()} />
 					<LinkItemMenuUserPanel label='заказы' href={getRouteOrders()} />
-
-					{/* <ButtonOrLinkArrow
-						title='профиль'
-						type='link'
-						link={getRouteAccount()}
-					/>
-
-					<ButtonOrLinkArrow
-						title='избранное'
-						type='link'
-						link={getRouteFavorites()}
-					/>
-					<ButtonOrLinkArrow
-						title='заказы'
-						type='link'
-						link={getRouteOrders()}
-					/> */}
 				</nav>
 				<div className={'fs-20 mt-30 fs-m-2'} style={{ textAlign: 'end' }}>
 					{logOutAction}

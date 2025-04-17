@@ -1,14 +1,21 @@
-import { EnumUserRole, IUsersResponse, UserRoleMeta } from '@/entities/user';
+import {
+	EnumUserRole,
+	getRoleOption,
+	IUsersResponse,
+	UserRoleMeta,
+} from '@/entities/user';
 import { AdminFormCreateEditBlock } from '@/shared/components/admin-form-create-edit-block';
 import { AdminFormCreateEditItem } from '@/shared/components/admin-form-create-edit-item';
 import { DotLoader } from '@/shared/kit/dot-loader';
 import {
 	emailValidation,
 	passwordValidation,
+	requiredValidation,
 } from '@/shared/lib/input-validations';
+import { AutocompleteMui } from '@/shared/ui/components/autocomplete-mui';
 import { InputMui } from '@/shared/ui/components/input-mui';
 import { InputMuiPassword } from '@/shared/ui/components/input-mui-password';
-import { sxMuiInput } from '@/shared/ui/styles';
+import { sxAutocompletePopper, sxMuiInput } from '@/shared/ui/styles';
 import { Control } from 'react-hook-form';
 
 type Props = {
@@ -18,6 +25,11 @@ type Props = {
 };
 
 export const MainInfo = ({ control, data, role }: Props) => {
+	console.log(role === EnumUserRole.SUPER_ADMIN);
+
+	console.log(role, 'role');
+	console.log(EnumUserRole.SUPER_ADMIN, 'EnumUserRole.SUPER_ADMIN');
+
 	return (
 		<AdminFormCreateEditBlock title='Основная информация *'>
 			<AdminFormCreateEditItem title='почта'>
@@ -43,7 +55,21 @@ export const MainInfo = ({ control, data, role }: Props) => {
 				/>
 			</AdminFormCreateEditItem>
 
-			{role !== EnumUserRole.SUPER_ADMIN && !!data && (
+			{role === EnumUserRole.SUPER_ADMIN && (
+				<AdminFormCreateEditItem title='роль'>
+					<AutocompleteMui
+						name='role'
+						control={control}
+						placeholder='Роль'
+						validation={requiredValidation}
+						options={getRoleOption(role)}
+						sx={sxMuiInput}
+						size='small'
+						sxPopper={sxAutocompletePopper}
+					/>
+				</AdminFormCreateEditItem>
+			)}
+			{!!data && role !== EnumUserRole.SUPER_ADMIN && (
 				<AdminFormCreateEditItem title=''>
 					<DotLoader
 						items={[

@@ -56,6 +56,7 @@ export const useCreateOrEditUserAdmin = ({ data }: Props) => {
 						submitData.password === '' && data
 							? undefined
 							: submitData.password,
+					phone: submitData.phone === '' && data ? undefined : submitData.phone,
 				});
 			} else {
 				await mutateAsyncUsers(submitData);

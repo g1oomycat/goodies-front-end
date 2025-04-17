@@ -1,4 +1,5 @@
 'use client';
+import { EnumAttribute } from '@/entities/category';
 import { AdminFormCreateEditBlock } from '@/shared/components/admin-form-create-edit-block';
 import { AdminFormCreateEditItem } from '@/shared/components/admin-form-create-edit-item';
 import { ButtonCustom } from '@/shared/ui/components/button';
@@ -8,10 +9,17 @@ import { CategoryAttributesItemForm } from './attr-item';
 type Props = {
 	control: Control<any>;
 	setValue: UseFormSetValue<any>;
+	defaultAttribute: {
+		name: string;
+		filterable: boolean;
+		options: never[];
+		type: EnumAttribute;
+	};
 };
 export const CategoryAttributesContainerForm = ({
 	control,
 	setValue,
+	defaultAttribute,
 }: Props) => {
 	const { fields, append, remove } = useFieldArray({
 		control,
@@ -35,9 +43,7 @@ export const CategoryAttributesContainerForm = ({
 					size='m'
 					colorType='primary'
 					type='button'
-					onClick={() =>
-						append({ name: '', type: '', filterable: false, options: [] })
-					}
+					onClick={() => append(defaultAttribute)}
 				>
 					Добавить еще атрибут
 				</ButtonCustom>

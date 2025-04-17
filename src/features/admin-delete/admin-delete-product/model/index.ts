@@ -6,7 +6,7 @@ export function useAdminDeleteProduct() {
 
 	const handleDeleteProduct = (id: string) => {
 		toastWarningDelete<string>({
-			entity: 'Отзывы инсты',
+			entity: 'товара',
 			id,
 			onDelete: async id => {
 				await mutateAsync(id);

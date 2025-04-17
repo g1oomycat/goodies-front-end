@@ -4,11 +4,12 @@ import { AdminFormCreateEditItem } from '@/shared/components/admin-form-create-e
 import { optionYesNoNone } from '@/shared/constants/option-yes-no-none';
 import {
 	numberValidation,
-	requiredValidation,
+	textValidation,
 } from '@/shared/lib/input-validations';
 import { AutocompleteMui } from '@/shared/ui/components/autocomplete-mui';
 import { InputMui } from '@/shared/ui/components/input-mui';
 import { sxAutocompletePopper, sxMuiInput } from '@/shared/ui/styles';
+import { Fragment } from 'react';
 import { Control } from 'react-hook-form';
 
 type Props = {
@@ -26,54 +27,49 @@ export const ProductAttributesForm = ({ selectedCategory, control }: Props) => {
 		);
 	}
 
-	return selectedCategory.attributes?.map(attr => {
-		const fieldName = `attributes.${attr.id};${attr.name}.value`;
+	return (
+		<AdminFormCreateEditBlock title='Характеристики *'>
+			{selectedCategory.attributes?.map(attr => {
+				const fieldName = `attributes.${attr.id};${attr.name}.value`;
 
-		if (
-			attr.type === EnumAttribute.SELECT ||
-			attr.type === EnumAttribute.BOOLEAN
-		) {
-			return (
-				<AdminFormCreateEditBlock title='Характеристики *' key={attr.id}>
-					<AdminFormCreateEditItem title={attr.name} key={fieldName}>
-						<AutocompleteMui
-							name={fieldName}
-							control={control}
-							placeholder='Выберите характеристику'
-							options={
-								attr.type === EnumAttribute.SELECT
-									? attr.options ?? []
-									: optionYesNoNone
-							}
-							sx={sxMuiInput}
-							size='small'
-							sxPopper={sxAutocompletePopper}
-							validation={requiredValidation}
-						/>
-					</AdminFormCreateEditItem>
-				</AdminFormCreateEditBlock>
-			);
-		}
-
-		return (
-			<AdminFormCreateEditBlock title='Характеристики *' key={attr.id}>
-				{' '}
-				<AdminFormCreateEditItem title={attr.name} key={fieldName}>
-					<InputMui
-						name={fieldName}
-						control={control}
-						placeholder='Введите значение'
-						type={attr.type === EnumAttribute.NUMBER ? 'number' : 'text'}
-						sx={sxMuiInput}
-						size='small'
-						validation={
-							attr.type === EnumAttribute.NUMBER
-								? numberValidation(true, 0)
-								: requiredValidation
-						}
-					/>
-				</AdminFormCreateEditItem>
-			</AdminFormCreateEditBlock>
-		);
-	});
+				return (
+					<Fragment key={fieldName}>
+						<AdminFormCreateEditItem title={attr.name}>
+							{attr.type === EnumAttribute.SELECT ||
+							attr.type === EnumAttribute.BOOLEAN ? (
+								<AutocompleteMui
+									name={fieldName}
+									control={control}
+									placeholder='Выберите характеристику'
+									options={
+										attr.type === EnumAttribute.SELECT
+											? attr.options ?? []
+											: optionYesNoNone
+									}
+									sx={sxMuiInput}
+									size='small'
+									sxPopper={sxAutocompletePopper}
+									// validation={requiredValidation}
+								/>
+							) : (
+								<InputMui
+									name={fieldName}
+									control={control}
+									placeholder='Введите значение'
+									type={attr.type === EnumAttribute.NUMBER ? 'number' : 'text'}
+									sx={sxMuiInput}
+									size='small'
+									validation={
+										attr.type === EnumAttribute.NUMBER
+											? numberValidation(false, 0)
+											: textValidation(false)
+									}
+								/>
+							)}
+						</AdminFormCreateEditItem>
+					</Fragment>
+				);
+			})}
+		</AdminFormCreateEditBlock>
+	);
 };

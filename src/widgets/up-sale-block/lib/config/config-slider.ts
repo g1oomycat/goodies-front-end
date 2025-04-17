@@ -49,8 +49,8 @@ export const configSliderUpSale = ({
 		},
 	},
 	navigation: {
-		nextEl: nextEl,
-		prevEl: prevEl,
+		nextEl,
+		prevEl,
 	},
 	grabCursor: true,
 	modules: [FreeMode, Scrollbar, Navigation],

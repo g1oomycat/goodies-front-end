@@ -24,7 +24,7 @@ export const mainSliderConfig = (horizontalClass: string): SwiperOptions => ({
 		draggable: true,
 		snapOnRelease: true,
 		hide: false,
-		dragSize: 150,
+		dragSize: 'auto',
 		horizontalClass: horizontalClass,
 		dragClass: '_drag_bar',
 	},

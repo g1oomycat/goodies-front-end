@@ -61,8 +61,14 @@
 	}
 	.nav_slider {
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		@media (max-width: $breakpoint-SCREEN_LG_D) {
 			display: none;
 		}
 	}
+}
+.prevButton,
+.nextButton {
+	display: block;
 }

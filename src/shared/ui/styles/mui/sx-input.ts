@@ -5,18 +5,21 @@ export const sxMuiInput = {
 	'& .MuiButtonBase-root': {
 		color: 'var(--color-text) !important',
 	},
-
-	// '& .MuiOutlinedInput-notchedOutline': {
-	// 	borderColor: 'var(--color-border) !important',
-	// },
+	'&.Mui-error .MuiOutlinedInput-notchedOutline': {
+		borderColor: 'var(--color-red) !important',
+	},
+	'& .MuiOutlinedInput-notchedOutline': {
+		borderColor: 'var(--color-border) !important',
+	},
 	'& .MuiOutlinedInput-root': {
 		borderColor: 'var(--color-border) !important',
 		color: 'var(--color-text) !important',
+
 		'& .MuiOutlinedInput-notchedOutline': {
 			borderColor: 'var(--color-border) !important',
 		},
 		'&:hover .MuiOutlinedInput-notchedOutline': {
-			borderColor: 'var(--color-border) !important', // 🔥 Работает ховер на input
+			borderColor: 'var(--color-border) !important',
 		},
 		'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
 			borderColor: 'var(--color-border) !important',
@@ -27,7 +30,7 @@ export const sxMuiInput = {
 		},
 	},
 
-	'&.MuiInputBase-input': {
+	'& .MuiInputBase-input': {
 		borderColor: 'var(--color-border) !important',
 		color: 'var(--color-text) !important',
 	},

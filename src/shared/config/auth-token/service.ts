@@ -16,11 +16,11 @@ export const saveTokenStorage = (accessToken: string, role: EnumUserRole) => {
 		new Date().getTime() +
 			0.5 * 60 * 60 * 1000 * (role !== EnumUserRole.USER ? 0.5 : 1)
 	);
+
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
 		domain: process.env.DOMAIN,
 		secure: true, // true в проде, false на локалке
 		expires: expirationTime, //1 ч,
-		// path: '/',
 		sameSite: 'None',
 	});
 };

@@ -39,7 +39,6 @@ export const AdminUserForm = ({ data, actionDelete, otherActions }: Props) => {
 			}
 			rightChildren={
 				<>
-					{/* Блок информации о товаре — только при редактировании */}
 					{data && (
 						<AdminFormCreateAndRefreshInfo
 							createdAt={data.createdAt}

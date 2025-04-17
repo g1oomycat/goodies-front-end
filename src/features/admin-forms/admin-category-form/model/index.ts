@@ -16,21 +16,19 @@ type Props = {
 
 export const useCreateOrEditCategoryAdmin = ({ data }: Props) => {
 	// Инициализируем форму с начальными значениями (если редактирование — берём из `data`)
-
+	const defaultAttribute = {
+		name: '',
+		filterable: true,
+		options: [],
+		type: EnumAttribute.STRING,
+	};
 	const { handleSubmit, control, reset, setValue } = useForm<ICategoriesForm>({
 		mode: 'onChange',
 		defaultValues: {
 			name: data?.name ?? '',
 			description: data?.description ?? '',
 			image: data ? [{ id: data.image }] : [],
-			attributes: data?.attributes ?? [
-				{
-					name: '',
-					filterable: true,
-					options: [],
-					type: EnumAttribute.STRING,
-				},
-			],
+			attributes: data?.attributes ?? [defaultAttribute],
 			numberSort: data?.numberSort?.toString() ?? undefined,
 		},
 	});
@@ -106,5 +104,6 @@ export const useCreateOrEditCategoryAdmin = ({ data }: Props) => {
 		setValue,
 		isPending:
 			isPendingImage || isPendingCategories || isPendingUpdateCategories,
+		defaultAttribute,
 	};
 };

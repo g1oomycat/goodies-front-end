@@ -1,9 +1,10 @@
+import { showToast } from '@/features/show-custom-toaster';
 import { handleAxiosError } from '@/shared/lib/handle-axios-error';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { cartService } from '../api';
 import { ICartItemsUpdate } from '../types';
 
-export function useCartUpdateProduct() {
+export function useCartUpdateProduct(isVisibleToast?: boolean) {
 	const queryClient = useQueryClient();
 
 	// Добавление в избранное
@@ -15,8 +16,16 @@ export function useCartUpdateProduct() {
 		mutationKey: ['cartUpdateProduct'],
 		mutationFn: (data: ICartItemsUpdate) => cartService.updateProduct(data),
 
-		onSuccess: () => {
+		onSuccess: newCart => {
 			queryClient.invalidateQueries({ queryKey: ['cart'] });
+			if (isVisibleToast) {
+				showToast({
+					image: newCart.product.images[0],
+					title: 'товар добавлен в корзину',
+					subtitle: newCart.product.name,
+					icon: 'CART',
+				});
+			}
 		},
 
 		onError: error => {

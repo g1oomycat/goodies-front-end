@@ -49,7 +49,7 @@ export const AccountLink = () => {
 									textTransform: 'lowercase',
 								}}
 							>
-								'Войти в аккаунт'
+								Войти в аккаунт
 							</span>
 						</>
 					}

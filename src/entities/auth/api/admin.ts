@@ -10,7 +10,6 @@ class AdminAuthService {
 			this.BASE_URL + 'login',
 			data
 		);
-		console.log(response.data);
 
 		if (response.data.accessToken)
 			saveTokenStorage(response.data.accessToken, response.data.user.role);

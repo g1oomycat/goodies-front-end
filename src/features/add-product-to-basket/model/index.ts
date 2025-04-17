@@ -11,7 +11,7 @@ export function useBasket(productId: string) {
 	const { openSideBar } = useAuthSideBarStore();
 	const { isAuthenticated } = useAuthStore();
 	const { addCart } = useCartAddProduct();
-	const { updateCart } = useCartUpdateProduct();
+	const { updateCart } = useCartUpdateProduct(true);
 	const { cart, isLoading } = useCartStore();
 
 	// Обновляем состояние при изменении корзины

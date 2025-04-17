@@ -14,7 +14,6 @@ export async function middleware(request: NextRequest) {
 	// Получаем accessToken и refreshToken из cookies
 	let refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value || null;
 	let accessToken = cookies.get(EnumTokens.ACCESS_TOKEN)?.value || null;
-
 	//определение редиректа
 	let redirectURL = new URL(getRouteMain(), url);
 	if (url.includes('/admin/admin')) {
@@ -24,7 +23,6 @@ export async function middleware(request: NextRequest) {
 
 	// Если нет токенов — редирект на главную
 	if (!refreshToken && !accessToken) {
-		console.log(url);
 		if (url.includes('/admin/auth')) {
 			return NextResponse.next();
 		} else {
@@ -74,7 +72,9 @@ export async function middleware(request: NextRequest) {
 
 				response.headers.set(
 					'Set-Cookie',
-					`accessToken=${accessToken}; Expires=${expirationTime.toUTCString()}; Path=/;Secure; SameSite=None`
+					`accessToken=${accessToken}; Expires=${expirationTime.toUTCString()}; Path=/; Secure; SameSite=None; Domain=${
+						process.env.DOMAIN
+					}`
 				);
 
 				// Декодируем новый токен для проверки роли

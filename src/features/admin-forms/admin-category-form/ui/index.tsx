@@ -26,8 +26,14 @@ export const AdminCategoryForm = ({
 	actionDelete,
 	otherActions,
 }: Props) => {
-	const { control, handleSubmit, onSubmit, isPending, setValue } =
-		useCreateOrEditCategoryAdmin({ data });
+	const {
+		control,
+		handleSubmit,
+		onSubmit,
+		isPending,
+		setValue,
+		defaultAttribute,
+	} = useCreateOrEditCategoryAdmin({ data });
 
 	return (
 		<AdminCreateEditFormContainer
@@ -45,6 +51,7 @@ export const AdminCategoryForm = ({
 					<CategoryAttributesContainerForm
 						control={control}
 						setValue={setValue}
+						defaultAttribute={defaultAttribute}
 					/>
 				</>
 			}

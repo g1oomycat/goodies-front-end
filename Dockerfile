@@ -24,6 +24,9 @@ WORKDIR /app
 ARG BASE_URL
 ENV BASE_URL=$BASE_URL
 
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+
 COPY --from=deps /app/node_modules ./node_modules
 
 COPY . .
@@ -35,8 +38,11 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
+
+
 FROM base AS runner
 WORKDIR /app
+
 
 
 ENV NODE_ENV=production

@@ -27,6 +27,7 @@ export const FullInfoProduct = ({
 				text: capitalizeFirstLetter(el.value),
 		  }))
 		: [];
+	console.log(product);
 
 	return (
 		<div className={styles.info_column}>
@@ -45,7 +46,9 @@ export const FullInfoProduct = ({
 									<span
 										className='fs-s-1'
 										style={{ color: 'var(--color-pink)' }}
-									>{`со скидкой ${formatPercentage(product.discount)}`}</span>
+									>{`со скидкой ${formatPercentage(
+										product.percentageChange
+									)}`}</span>
 								)}
 							</div>
 							{!!product.discount && (
