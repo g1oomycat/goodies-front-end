@@ -9,9 +9,10 @@ const URL = process.env.NEXT_URL as string;
 
 async function getData() {
 	try {
-		if (process.env.NEXT_PHASE === 'phase-production-build') {
-			return { categoriesData: { result: [] }, productsData: { result: [] } }; // 🚫 не дергаем базу во время билда
-		}
+		// if (process.env.NEXT_PHASE === 'phase-production-build') {
+		// 	return { categoriesData: { result: [] }, productsData: { result: [] } }; // 🚫 не дергаем базу во время билда
+		// }
+
 		const [responseCategories, responseProducts] = await Promise.all([
 			fetch(`${process.env.BASE_URL}/categories?limit=0`),
 			fetch(`${process.env.BASE_URL}/products?limit=0`),

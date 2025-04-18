@@ -27,7 +27,6 @@ export const FullInfoProduct = ({
 				text: capitalizeFirstLetter(el.value),
 		  }))
 		: [];
-	console.log(product);
 
 	return (
 		<div className={styles.info_column}>

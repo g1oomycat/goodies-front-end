@@ -21,16 +21,17 @@ RUN \
 FROM base  AS builder
 WORKDIR /app
 
-ARG BASE_URL
-ENV BASE_URL=$BASE_URL
+# ARG BASE_URL
+# ENV BASE_URL=https://api.goodies-shop.kz/api
 
-ARG NEXT_PUBLIC_BASE_URL
-ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
-
+# ARG NEXT_PUBLIC_BASE_URL
+# ENV NEXT_PUBLIC_BASE_URL=https://api.goodies-shop.kz/api
+COPY .env.production.local ./.env
 COPY --from=deps /app/node_modules ./node_modules
-
 COPY . .
 COPY public/images /app/public/images
+
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
@@ -55,16 +56,17 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 # Удаляем sitemap заранее, если он не должен быть сгенерен во время сборки
-RUN rm -rf /app/.next/server/app/sitemap.xml.* \
- && rm -rf /app/.next/server/app/_not-found.* \
- && rm -rf /app/.next/server/app/*/*/product/[slug]/* || true 
-#  && rm -rf /app/.next/server/app/*/*/page.* 
+# RUN rm -rf /app/.next/server/app/sitemap.xml.* \
+#  && rm -rf /app/.next/server/app/_not-found.* \
+#  && rm -rf /app/.next/server/app/*/*/product/[slug]/* || true 
+
 
 USER nextjs
 
 EXPOSE 3000
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+
 
 CMD ["node", "server.js"]

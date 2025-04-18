@@ -25,11 +25,6 @@ type Props = {
 };
 
 export const MainInfo = ({ control, data, role }: Props) => {
-	console.log(role === EnumUserRole.SUPER_ADMIN);
-
-	console.log(role, 'role');
-	console.log(EnumUserRole.SUPER_ADMIN, 'EnumUserRole.SUPER_ADMIN');
-
 	return (
 		<AdminFormCreateEditBlock title='Основная информация *'>
 			<AdminFormCreateEditItem title='почта'>

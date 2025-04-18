@@ -90,6 +90,7 @@ export async function generateStaticParams() {
 		if (!response.ok) return [];
 
 		const data: IGetAllProductsResponse = await response.json();
+
 		return data.result.map(product => ({ slug: product.slug }));
 	} catch {
 		return [];

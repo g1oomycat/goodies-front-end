@@ -14,6 +14,7 @@
 		padding: 2rem 0rem;
 		margin: 2rem 0rem;
 		@include transition;
+		color: inherit;
 		&:hover {
 			color: var(--color-red);
 		}

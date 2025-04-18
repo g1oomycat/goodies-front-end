@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  frontend:
+    image: ghcr.io/g1oomycat/goodies-frontend:latest
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+      labels:
+        - 'traefik.enable=true'
+        - 'traefik.http.routers.frontend.rule=Host(`goodies-shop.kz`)'
+        - 'traefik.http.routers.frontend.entrypoints=websecure'
+        - 'traefik.http.routers.frontend.tls.certresolver=letsencrypt'
+        - 'traefik.http.services.frontend.loadbalancer.server.port=3000'
+    environment:
+      NEXT_PUBLIC_BASE_URL: https://api.goodies-shop.kz/api
+      BASE_URL: https://api.goodies-shop.kz/api
+      NEXT_URL: https://goodies-shop.kz
+      DOMAIN: .goodies-shop.kz
+    networks:
+      - goodies_overlay
+
+networks:
+  goodies_overlay:
+    external: true
